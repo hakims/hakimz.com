@@ -1,340 +1,202 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Hakimz.com</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakimz — Ali Hakimi</title>
+<meta name="description" content="Ali Hakimi's corner of the internet — side projects, experiments, hobbies, and the things I'm currently into.">
+<meta name="theme-color" content="#05060d">
+<!-- Open Graph -->
+<meta property="og:title" content="Hakimz — Ali Hakimi">
+<meta property="og:description" content="Side projects, experiments, and the things I'm currently into.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
 </head>
+<body>
 
-<body id="top">
+<!-- ============ HERO — Interstellar-inspired beam scene ============ -->
+<header class="hero" id="top">
+  <!-- canvas starfield + drifting stardust (JS-driven) -->
+  <canvas class="hero-canvas" id="sky" aria-hidden="true"></canvas>
+  <!-- volumetric column of light (pure CSS, breathes) -->
+  <div class="beam" aria-hidden="true"></div>
+  <div class="beam-bloom" aria-hidden="true"></div>
+  <!-- faint nebula toward top-right, like the reference -->
+  <div class="nebula" aria-hidden="true"></div>
 
-    <!-- pageheader NOTE: every new page needs this same pageheader. see jolly2k18.html for reference
-    ================================================== -->
-    <section class="s-pageheader s-pageheader--home">
+  <!-- low pure-black horizon silhouette (SVG): farmhouse, two figures, pickup, tree, fences, road -->
+  <svg class="horizon" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <!-- warm glow where beam meets ground -->
+    <defs>
+      <radialGradient id="groundGlow" cx="50%" cy="100%" r="60%">
+        <stop offset="0%" stop-color="rgba(245,222,210,.55)"/>
+        <stop offset="35%" stop-color="rgba(120,150,200,.18)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+      </radialGradient>
+    </defs>
+    <ellipse cx="720" cy="232" rx="340" ry="120" fill="url(#groundGlow)"/>
+    <!-- ground mass -->
+    <path fill="#000" d="M0 232 Q 360 214 720 220 T 1440 230 L1440 260 L0 260 Z"/>
+    <!-- dirt road leading line to the figures -->
+    <path fill="#040407" d="M690 232 L660 260 L820 260 L760 232 Z" opacity=".9"/>
+    <!-- silhouette props sit on the ground line ~y=222 -->
+    <g fill="#000">
+      <!-- farmhouse (left) -->
+      <path d="M470 224 L470 200 L500 184 L530 200 L530 224 Z"/>
+      <rect x="528" y="204" width="6" height="20"/>
+      <!-- fence posts left -->
+      <rect x="430" y="214" width="3" height="10"/><rect x="445" y="214" width="3" height="10"/>
+      <rect x="412" y="216" width="3" height="8"/>
+      <!-- two figures holding hands (center, under the beam) -->
+      <path d="M704 224 L704 207 a4 4 0 0 1 8 0 L712 224 Z"/>
+      <circle cx="708" cy="202" r="4"/>
+      <path d="M716 224 L716 209 a4 4 0 0 1 8 0 L724 224 Z"/>
+      <circle cx="720" cy="204" r="4"/>
+      <!-- pickup / wagon (right of figures) -->
+      <path d="M760 224 L760 212 L792 212 L792 224 Z"/>
+      <path d="M792 224 L792 216 L808 216 L812 224 Z"/>
+      <circle cx="770" cy="225" r="4"/><circle cx="802" cy="225" r="4"/>
+      <!-- lone tree (right) -->
+      <rect x="858" y="206" width="4" height="18"/>
+      <circle cx="860" cy="200" r="11"/>
+      <!-- fence posts right -->
+      <rect x="980" y="214" width="3" height="10"/><rect x="996" y="214" width="3" height="10"/>
+      <rect x="1012" y="216" width="3" height="8"/>
+    </g>
+  </svg>
 
-        <header class="header">
-            <div class="header__content row">
+  <!-- wordmark + tagline -->
+  <div class="hero-copy">
+    <p class="kicker">Ali&nbsp;Hakimi</p>
+    <h1 class="wordmark">Hakimz</h1>
+    <p class="tagline" id="tagline" aria-live="polite"><span class="typed"></span><span class="caret" aria-hidden="true">▍</span></p>
+  </div>
 
-            
-                <div class="header__logo">
-                    <a class="logo" href="index.html">
-                        <!-- <img src="images/logo.svg" alt="Homepage"> -->
-                        <img src="images/crowsden.png" alt ="Homepage">
-                    </a>
+  <a class="scroll-cue" href="#tinkering" aria-label="Scroll to content">
+    <span>scroll</span>
+    <svg width="18" height="26" viewBox="0 0 18 26" fill="none" aria-hidden="true">
+      <rect x="1" y="1" width="16" height="24" rx="8" stroke="currentColor" stroke-opacity=".5"/>
+      <circle class="cue-dot" cx="9" cy="8" r="2.5" fill="currentColor"/>
+    </svg>
+  </a>
+</header>
 
-                </div>  <!-- end header__logo -->
-                <ul class="header__social">
-                    <li>
-                        <a href="https://www.facebook.com/Hakims"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <!-- <li>
-                        <a href="#0"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li> -->
-                    <li>
-                        <a href="https://www.instagram.com/crowmanhakims/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                    <!-- <li>
-                        <a href="#0"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                    </li> -->
-                </ul> <!-- end header__social -->
+<main>
+  <!-- ============ TINKERING ============ -->
+  <section class="section" id="tinkering">
+    <div class="wrap">
+      <p class="eyebrow">// currently in the workshop</p>
+      <h2 class="section-title">What I'm tinkering with</h2>
+      <p class="section-lede">Side projects, half-finished experiments, and the research I keep circling back to. Some of it ships, most of it teaches me something.</p>
 
-                <a class="header__search-trigger" href="#0"></a>
+      <div class="cards">
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🛰️</div>
+          <span class="pill">side project</span>
+          <h3>Alfred</h3>
+          <p>A personal chief-of-staff agent that runs my projects, reading, and schedule. Lives in a terminal and a stack of markdown — slowly becoming the most useful thing I've built.</p>
+          <span class="card-meta">tinkering · weekly</span>
+        </article>
 
-                <div class="header__search">
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🧠</div>
+          <span class="pill">research</span>
+          <h3>AI on vascular imaging</h3>
+          <p>Teaching models to segment and read carotid + peripheral vascular studies. The fun part: turning messy clinical data into something a network can actually learn from.</p>
+          <span class="card-meta">research refresher</span>
+        </article>
 
-                    <form role="search" method="get" class="header__search-form" action="#">
-                        <label>
-                            <span class="hide-content">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
-                        </label>
-                        <input type="submit" class="search-submit" value="Search">
-                    </form>
-        
-                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🃏</div>
+          <span class="pill">experiment</span>
+          <h3>Spaced-repetition stack</h3>
+          <p>Pipelines that turn lecture screenshots straight into Anki cards. An ongoing fight to make studying feel automatic instead of like a chore.</p>
+          <span class="card-meta">always shipping</span>
+        </article>
 
-                </div>  <!-- end header__search -->
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🎛️</div>
+          <span class="pill">hobby</span>
+          <h3>Generative & creative coding</h3>
+          <p>Starfields, shaders, little canvas toys like the one above this text. Where I go to play when I want code with no deadline attached.</p>
+          <span class="card-meta">nights &amp; weekends</span>
+        </article>
 
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🏔️</div>
+          <span class="pill">offline</span>
+          <h3>Out of the screen</h3>
+          <p>Lifting, the occasional long run, and chasing dark-sky spots with a camera. The analog counterweight to everything above.</p>
+          <span class="card-meta">recharging</span>
+        </article>
 
-                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
-
-                <nav class="header__nav-wrap">
-
-                    <h2 class="header__nav-heading h6">Site Navigation</h2>
-
-                    <ul class="header__nav">
-                        <li class="current"><a href="index.html" title="">Home</a></li>
-                        <li class="has-children">
-                            <a href="#0" title="">The Book of Safety</a>
-                            <ul class="sub-menu">
-                            <li><a href="book-of-safety/overview.html">Overview</a></li>
-                            <li><a href="book-of-safety/interstellar.html">Chapter 1: Interstellar</a></li>
-                            <li><a href="#0">Chapter 2: Harry Potter</a></li>
-                          <!--   <li><a href="category.html">Management</a></li>
-                            <li><a href="category.html">Travel</a></li>
-                            <li><a href="category.html">Work</a></li> -->
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#0" title="">Adventures</a>
-                            <ul class="sub-menu">
-                            <li><a href="adventures/jolly2k18.html">Jolly's 2k18 Winter Update</a></li>
-                            <!-- <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li> -->
-                            </ul>
-                        </li>
-                        <li class="has-children">
-                            <a href="#0" title="">Kasey's Tools</a>
-                            <ul class="sub-menu">
-                            <!-- <li><a href="single-video.html">Video Post</a></li>
-                            <li><a href="single-audio.html">Audio Post</a></li>
-                            <li><a href="single-gallery.html">Gallery Post</a></li>
-                            <li><a href="single-standard.html">Standard Post</a></li> -->
-                            </ul>
-                        </li>
-                        
-                        <li class="has-children"> 
-                            <a href="s#0" title="">Crowman's Critters</a>
-                            <ul class="sub-menu">
-                            <li><a href="http://hakimz.com:32400/web/index.html" title="">Plex</a></li>
-                            <li><a href="https://hakimz.com/rutorrent/" title="">Jabba</a></li>
-                            <li><a href="crowcritters/thoughtstream.html", title="">Thoughtstream</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html" title="">About</a></li>
-                        <!-- <li><a href="contact.html" title="">Contact</a></li> -->
-                    </ul> <!-- end header__nav -->
-
-                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
-
-                </nav> <!-- end header__nav-wrap -->
-
-            </div> <!-- header-content -->
-        </header> <!-- header -->
-
-<!--content -->
-        <div class="pageheader-content row">
-            <div class="col-full">
-
-                <div class="featured">
-
-                    <div class="featured__column featured__column--big">
-                        <div class="entry" style="background-image:url('images/thumbs/featured/featured-jwinter2k18.jpg');">
-                            
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Winter</a></span>
-
-                                <h1><a href="jolly2k18.html" title="">Jolly's 2k18 Winter Update</a></h1>
-
-                                <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-jolly.jpg" alt="">
-                                    </a>
-
-                                    <ul class="entry__meta">
-                                        <li><a href="#0">Austin Jolly</a></li>
-                                        <li>December 21, 2018</li>
-                                    </ul>
-                                </div>
-                            </div> <!-- end entry__content -->
-                            
-                        </div> <!-- end entry -->
-                    </div> <!-- end featured__big -->
-
-                    <div class="featured__column featured__column--small">
-
-                        <div class="entry" style="background-image:url('images/thumbs/featured/featured-plex.jpg');">
-                            
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#0">Entertainment</a></span>
-
-                                <h1><a href="http://hakimz.com:32400/web/index.html" title="">Link to Plex Server</a></h1>
-
-                                <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-ali.jpg" alt="">
-                                    </a>
-
-                                    <ul class="entry__meta">
-                                        <li><a href="#0">Ali Hakimi</a></li>
-                                        <!-- <li>December 27, 2017</li> -->
-                                    </ul>
-                                </div>
-                            </div> <!-- end entry__content -->
-                          
-                        </div> <!-- end entry -->
-
-                        <div class="entry" style="background-image:url('images/thumbs/featured/featured-pottermore.jpg');">
-
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#0">LifeStyle</a></span>
-
-                                <h1><a href="https://www.pottermore.com" title="">You need to check out Pottermore</a></h1>
-
-                                <div class="entry__info">
-                                    <a href="#0" class="entry__profile-pic">
-                                        <img class="avatar" src="images/avatars/user-ali.jpg" alt="">
-                                    </a>
-
-                                    <ul class="entry__meta">
-                                        <li><a href="#0">Ali Hakimi</a></li>
-                                        <!-- <li>December 21, 2017</li> -->
-                                    </ul>
-                                </div>
-                            </div> <!-- end entry__content -->
-
-                        </div> <!-- end entry -->
-
-                    </div> <!-- end featured__small -->
-                </div> <!-- end featured -->
-
-            </div> <!-- end col-full -->
-        </div> <!-- end pageheader-content row -->
-
-    </section> <!-- end s-pageheader -->
-
-
-    <!-- s-footer
-    ================================================== -->
-    <footer class="s-footer">
-
-        <div class="s-footer__main">
-            <div class="row">
-                
-                <div class="col-two md-four mob-full s-footer__sitelinks">
-                        
-                    <h4>Quick Links</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="http://hakimz.com:32400/web/index.html">Plex</a></li>
-                        <li><a href="https://hakimz.com/rutorrent/">Jabba</a></li>
-                        <li><a href="#0">Styles</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <!-- <li><a href="#0">Contact</a></li> -->
-                        <li><a href="#0">Privacy Policy</a></li>
-                    </ul>
-
-                </div> <!-- end s-footer__sitelinks -->
-
-              <!--   <div class="col-two md-four mob-full s-footer__archives">
-                        
-                    <h4>Archives</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="#0">January 2018</a></li>
-                        <li><a href="#0">December 2017</a></li>
-                        <li><a href="#0">November 2017</a></li>
-                        <li><a href="#0">October 2017</a></li>
-                        <li><a href="#0">September 2017</a></li>
-                        <li><a href="#0">August 2017</a></li>
-                    </ul>
-
-                </div> --> <!-- end s-footer__archives -->
-
-                <div class="col-two md-four mob-full s-footer__social">
-                        
-                    <h4>Social</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="https://www.facebook.com/Hakims">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/crowmanhakims/">Instagram</a></li>
-                        <!-- <li><a href="https://www.instagram.com/crowmanhakims/">Twitter</a></li> -->
-                       <!--  <li><a href="#0">Pinterest</a></li> -->
-                        <!-- <li><a href="#0">Google+</a></li> -->
-                        <li><a href="https://www.linkedin.com/in/alihakimi">LinkedIn</a></li>
-                    </ul>
-
-                </div> <!-- end s-footer__social -->
-
-                <div class="col-five md-full end s-footer__subscribe">
-                        
-                    <h4>About this page</h4>
-
-                    <p>This website is a place to share memories, ideas, cool things, and general awesomeness. Virtually everything you see here is probably owned by someone else so don't sue me! This page is managed (poorly) by Ali Hakimi. If you absolutely need to contact me, you can test your luck with my spam address: ali.hakimi@colorado.edu</p>
-
-                    <!-- <div class="subscribe-form">
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
-                
-                            <input type="submit" name="subscribe" value="Send">
-                
-                            <label for="mc-email" class="subscribe-message"></label>
-                
-                        </form>
-                    </div> -->
-
-                </div> <!-- end s-footer__subscribe -->
-
-            </div>
-        </div> <!-- end s-footer__main -->
-
-        <div class="s-footer__bottom">
-            <div class="row">
-                <div class="col-full">
-                    <div class="s-footer__copyright">
-                        <span>© Copyright Philosophy 2018</span> 
-                        <span>Site Template by <a href="https://colorlib.com/">Colorlib</a></span>
-                    </div>
-
-                    <div class="go-top">
-                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- end s-footer__bottom -->
-
-    </footer> <!-- end s-footer -->
-
-
-    <!-- preloader
-    ================================================== -->
-    <div id="preloader">
-        <div id="loader">
-            <div class="line-scale">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
+        <article class="card" tabindex="0">
+          <div class="card-ic" aria-hidden="true">🛠️</div>
+          <span class="pill">someday</span>
+          <h3>The idea pile</h3>
+          <p>A growing list of things I want to build — small tools, weird visualizations, automations for my own life. Half the fun is the backlog.</p>
+          <span class="card-meta">brewing</span>
+        </article>
+      </div>
     </div>
+  </section>
 
+  <!-- ============ SIGNALS (interests / news) ============ -->
+  <section class="section section-alt" id="signals">
+    <div class="wrap">
+      <p class="eyebrow">// what's on my radar</p>
+      <h2 class="section-title">Currently into</h2>
+      <p class="section-lede">A living snapshot of what I'm reading, watching, and thinking about. Updated whenever the world gets interesting — which is often.</p>
 
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+      <div class="signals">
+        <div class="signal-col">
+          <h4 class="signal-head"><span class="dot dot-cyan"></span>Reading</h4>
+          <ul class="signal-list">
+            <li><a href="#" data-ext>Papers on diffusion models for medical imaging<span class="src">arXiv</span></a></li>
+            <li><a href="#" data-ext>The case for small, sharp personal software<span class="src">essay</span></a></li>
+            <li><a href="#" data-ext>Field notes on agentic coding workflows<span class="src">blog</span></a></li>
+          </ul>
+        </div>
 
+        <div class="signal-col">
+          <h4 class="signal-head"><span class="dot dot-rose"></span>Watching</h4>
+          <ul class="signal-list">
+            <li><a href="#" data-ext>Frontier-model releases &amp; their eval games<span class="src">AI</span></a></li>
+            <li><a href="#" data-ext>Private spaceflight cadence<span class="src">space</span></a></li>
+            <li><a href="#" data-ext>Open hardware for the home lab<span class="src">maker</span></a></li>
+          </ul>
+        </div>
+
+        <div class="signal-col">
+          <h4 class="signal-head"><span class="dot dot-violet"></span>Tools I love</h4>
+          <ul class="signal-list">
+            <li><a href="#" data-ext>The terminal as a creative environment<span class="src">setup</span></a></li>
+            <li><a href="#" data-ext>Local-first apps &amp; plain-text data<span class="src">philosophy</span></a></li>
+            <li><a href="#" data-ext>Canvas, WebGL &amp; the demoscene<span class="src">graphics</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="signals-note">This strip is a placeholder feed — see the README for three ways to make it self-updating.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-wrap">
+    <span class="footer-mark">Hakimz</span>
+    <nav class="footer-links" aria-label="Elsewhere">
+      <a href="#" data-ext>GitHub</a>
+      <a href="#" data-ext>X / Twitter</a>
+      <a href="https://alihakimi.com">Professional ↗</a>
+    </nav>
+    <span class="footer-fine">Built late at night · <span id="year"></span></span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
 </body>
-
 </html>
