@@ -2,8 +2,10 @@
 
 Ali Hakimi's casual/funky personal face at the **root domain `hakimz.com`**.
 Side projects, experiments, hobbies, a research refresher, and the things he's
-currently into. **Public.** Not a CV (that's `alihakimi.com`), and it must never
-link to the private dashboards (`alfred.hakimz.com`, `tcar.hakimz.com`).
+currently into. **Public.** Not a CV (that's `alihakimi.com`). The top nav links
+out to Alfred (`alfred.hakimz.com`) — since this page is public, that dashboard
+should stay behind access control (e.g. Cloudflare Access). The TCAR dashboard
+(`tcar.hakimz.com`) is not linked yet; gate it the same way before exposing it.
 
 Shares the dark/spacey DNA of the Alfred hub but has its own identity:
 an Interstellar-inspired hero, warmer rose/peach accents, funkier typography.
