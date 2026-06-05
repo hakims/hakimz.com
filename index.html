@@ -17,10 +17,26 @@
 </head>
 <body>
 
+<!-- global starfield background (fixed, persists across scroll) -->
+<canvas class="sky-bg" id="sky" aria-hidden="true"></canvas>
+
+<!-- ============ TOP NAV — transparent over hero, frosts on scroll ============ -->
+<nav class="topnav" id="nav" aria-label="Primary">
+  <div class="nav-wrap">
+    <a class="brand" href="#top">Hakimz</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navMenu">
+      <a href="#tinkering">Tinkering</a>
+      <a href="#signals">Currently into</a>
+      <a class="nav-ext" href="#" data-ext aria-disabled="true" title="Link target pending">Alfred</a>
+    </div>
+  </div>
+</nav>
+
 <!-- ============ HERO — Interstellar-inspired beam scene ============ -->
 <header class="hero" id="top">
-  <!-- canvas starfield + drifting stardust (JS-driven) -->
-  <canvas class="hero-canvas" id="sky" aria-hidden="true"></canvas>
   <!-- volumetric column of light (pure CSS, breathes) -->
   <div class="beam" aria-hidden="true"></div>
   <div class="beam-bloom" aria-hidden="true"></div>
@@ -68,10 +84,9 @@
     </g>
   </svg>
 
-  <!-- wordmark + tagline -->
+  <!-- hero statement + tagline -->
   <div class="hero-copy">
-    <p class="kicker">Ali&nbsp;Hakimi</p>
-    <h1 class="wordmark">Hakimz</h1>
+    <h1 class="hero-statement">f<span class="ast">*</span>ck around<br>and find out</h1>
     <p class="tagline" id="tagline" aria-live="polite"><span class="typed"></span><span class="caret" aria-hidden="true">▍</span></p>
   </div>
 

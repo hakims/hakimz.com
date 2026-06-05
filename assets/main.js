@@ -13,6 +13,32 @@
   var yr = document.getElementById('year');
   if (yr) yr.textContent = new Date().getFullYear();
 
+  /* ---- top nav: frost on scroll + mobile overlay ---- */
+  var nav = document.getElementById('nav');
+  if (nav) {
+    var onNavScroll = function () {
+      nav.classList.toggle('scrolled', window.scrollY > 24);
+    };
+    onNavScroll();
+    window.addEventListener('scroll', onNavScroll, { passive: true });
+
+    var navToggle = document.getElementById('navToggle');
+    var navMenu = document.getElementById('navMenu');
+    if (navToggle && navMenu) {
+      var setOpen = function (open) {
+        navMenu.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      navToggle.addEventListener('click', function () {
+        setOpen(!navMenu.classList.contains('open'));
+      });
+      navMenu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () { setOpen(false); });
+      });
+    }
+  }
+
   /* ============================================================
      CANVAS: twinkling starfield + a vertical column of rising
      stardust that mirrors the Interstellar beam.
