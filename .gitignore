@@ -1,3 +1,15 @@
 # Ignore these directories
 
 media/
+
+# OS / editor noise
+.DS_Store
+Icon?
+*.swp
+
+# Google Drive sync-conflict artifacts (never commit these)
+*conflicted copy*
+* (1).*
+* (2).*
+* (1)
+* (2)
