@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Ali Hakimi</title>
+<meta name="description" content="Ali Hakimi's vascular surgery research — active projects and published work, visual-first.">
+<meta name="theme-color" content="#05060d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="research-assets/app.css">
+<style>
+  /* ============================================================
+     hakimz.com top nav — replicated from hakimz.com/assets/styles.css
+     so this page wears the site's own header (NOT the Alfred top bar).
+     Scoped to the nav only, to avoid clashing with research app.css.
+     ============================================================ */
+  :root{
+    --hz-bg:#04050b; --hz-ink:#eef1fb; --hz-ink-soft:#aeb6cc; --hz-muted:#6b758f;
+    --hz-line:rgba(255,255,255,.07); --hz-line-2:rgba(255,255,255,.13);
+    --hz-cyan:#7fd6ec; --hz-violet:#9b8cf8;
+    --hz-ease:cubic-bezier(.4,0,.2,1); --hz-maxw:1100px;
+    --hz-font-display:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --hz-font-body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  }
+  body{font-family:var(--hz-font-body)}
+  .topnav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    border-bottom:1px solid transparent;
+    transition:background .3s var(--hz-ease),border-color .3s var(--hz-ease),backdrop-filter .3s var(--hz-ease);
+  }
+  .topnav.scrolled{
+    background:rgba(6,9,20,.62);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--hz-line);
+  }
+  .nav-wrap{
+    max-width:var(--hz-maxw);margin:0 auto;
+    padding:13px clamp(20px,5vw,40px);
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{
+    font-family:var(--hz-font-display);font-weight:700;font-size:20px;letter-spacing:-.02em;
+    background:linear-gradient(180deg,#fff,#bcc6e2);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    text-decoration:none;
+  }
+  .nav-links{display:flex;align-items:center;gap:26px}
+  .nav-links a{
+    position:relative;text-decoration:none;
+    font-family:var(--hz-font-display);font-size:14px;font-weight:500;letter-spacing:.01em;
+    color:var(--hz-ink-soft);transition:color .2s var(--hz-ease);
+  }
+  .nav-links a:hover,.nav-links a.current{color:var(--hz-ink)}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:1.5px;border-radius:2px;
+    background:linear-gradient(90deg,var(--hz-cyan),var(--hz-violet));
+    transform:scaleX(0);transform-origin:left;transition:transform .25s var(--hz-ease);
+  }
+  .nav-links a:hover::after,.nav-links a.current::after{transform:scaleX(1)}
+  .nav-toggle{display:none}
+
+  /* push the research main below the fixed nav */
+  main.main{padding-top:84px}
+
+  /* ---- hakimz-style footer ---- */
+  .hz-footer{padding:40px 0;border-top:1px solid var(--hz-line);background:rgba(4,5,11,.5);position:relative;z-index:1;margin-top:40px}
+  .hz-footer-wrap{max-width:var(--hz-maxw);margin:0 auto;padding:0 clamp(20px,5vw,40px);display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .hz-footer-mark{font-family:var(--hz-font-display);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--hz-ink)}
+  .hz-footer-links{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+  .hz-footer-links a{font-size:14px;color:var(--hz-ink-soft);transition:color .2s var(--hz-ease);text-decoration:none}
+  .hz-footer-links a:hover{color:var(--hz-cyan)}
+  .hz-footer-fine{flex-basis:100%;font-size:12.5px;color:var(--hz-muted)}
+
+  @media (max-width:680px){
+    .nav-toggle{
+      display:flex;flex-direction:column;justify-content:center;gap:5px;
+      width:44px;height:44px;padding:0 11px;z-index:60;cursor:pointer;
+      border:1px solid var(--hz-line-2);border-radius:12px;background:rgba(255,255,255,.05);
+    }
+    .nav-toggle span{display:block;width:100%;height:2px;border-radius:2px;background:var(--hz-ink);
+      transition:transform .3s var(--hz-ease),opacity .2s var(--hz-ease)}
+    .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .nav-links{
+      position:fixed;inset:0;z-index:55;gap:34px;
+      flex-direction:column;justify-content:center;align-items:center;
+      background:rgba(4,6,14,.9);
+      -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);
+      opacity:0;visibility:hidden;transform:scale(1.05);
+      transition:opacity .3s var(--hz-ease),transform .3s var(--hz-ease),visibility .3s;
+    }
+    .nav-links.open{opacity:1;visibility:visible;transform:none}
+    .nav-links a{font-size:24px}
+    .nav-links a::after{display:none}
+    .hz-footer-links{margin-left:0;flex-basis:100%}
+  }
+</style>
+</head>
+<body>
+
+<!-- global starfield background (Alfred hub.js initSky animates this canvas) -->
+<canvas class="sky-bg" id="sky" aria-hidden="true"></canvas>
+
+<!-- ============ hakimz.com TOP NAV (NOT the Alfred top bar) ============ -->
+<nav class="topnav" id="nav" aria-label="Primary">
+  <div class="nav-wrap">
+    <a class="brand" href="index.html">Hakimz</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navMenu">
+      <a href="index.html#tinkering">Tinkering</a>
+      <a href="index.html#signals">Currently into</a>
+      <a href="research.html" class="current" aria-current="page">Research</a>
+      <a href="https://alfred.hakimz.com" target="_blank" rel="noopener">Alfred ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main class="main">
+  <div class="page-head">
+    <h1>Research</h1>
+    <p>Vascular surgery research, visual-first. Each card swipes through abstract → figures → key takeaways; open one for the full manuscript on-site.</p>
+  </div>
+
+  <section class="rgrid" id="active" style="margin-top:18px"></section>
+
+  <div class="rsec-title-wrap" id="published-head" style="display:none">
+    <h2 class="rsec-title">Published</h2>
+    <p class="rsec-sub">Peer-reviewed and in print — same card; “Open full manuscript” reads the full paper on-site.</p>
+  </div>
+  <section class="rgrid" id="published"></section>
+</main>
+
+<!-- ============ hakimz-style FOOTER ============ -->
+<footer class="hz-footer">
+  <div class="hz-footer-wrap">
+    <span class="hz-footer-mark">Hakimz</span>
+    <nav class="hz-footer-links" aria-label="Elsewhere">
+      <a href="index.html">Home</a>
+      <a href="https://alfred.hakimz.com" target="_blank" rel="noopener">Alfred ↗</a>
+      <a href="https://alihakimi.com">Professional ↗</a>
+    </nav>
+    <span class="hz-footer-fine">Built late at night · <span id="year"></span></span>
+  </div>
+</footer>
+
+<!-- hub.js gives us: starfield (initSky), lightbox, Hub.fetchData + Hub.esc -->
+<script src="research-assets/hub.js"></script>
+<script src="research-assets/research.js"></script>
+<script>
+/* hakimz-style nav behavior (frost on scroll + mobile hamburger overlay).
+   We do NOT load hakimz main.js — that would inject a second starfield. */
+(function(){
+  var yr=document.getElementById('year'); if(yr) yr.textContent=new Date().getFullYear();
+  var nav=document.getElementById('nav');
+  if(nav){
+    var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>24); };
+    onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+    var navToggle=document.getElementById('navToggle');
+    var navMenu=document.getElementById('navMenu');
+    if(navToggle && navMenu){
+      var setOpen=function(open){
+        navMenu.classList.toggle('open', open);
+        navToggle.setAttribute('aria-expanded', open?'true':'false');
+        navToggle.setAttribute('aria-label', open?'Close menu':'Open menu');
+      };
+      navToggle.addEventListener('click', function(){ setOpen(!navMenu.classList.contains('open')); });
+      navMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
+    }
+  }
+})();
+</script>
+<script>
+/* READ-ONLY public research bootstrap (copied v1).
+   Curated, hardcoded public list — does NOT fetch the private projects.json.
+   Differences vs Alfred research.html: no "Refresh from Drive" button / handler,
+   "Open full manuscript →" points at paper.html, no triage/ideas/lite/deadlines. */
+(async function(){
+  const $=s=>document.querySelector(s);
+  const PUBLIC=[
+    {id:'billing-coding',sec:'active'},
+    {id:'tcar-segmentation',sec:'active'},
+    {id:'tcar-acap',sec:'published',published:true},
+    {id:'readability-scores',sec:'published',published:true}
+  ];
+
+  // Rich 3D card — adapted from Alfred research.html richCard():
+  //  - read-only (no Refresh button)
+  //  - "Open full manuscript →" -> paper.html?id=<id>
+  //  - keeps the Published badge logic
+  function richCard(p,m){
+    const pri=(p.published||p.status==='completed')
+      ? '<span class="rstage pub">Published</span>'
+      : (p.priority?'<span class="rstage '+(p.priority==='P2'?'p2':'')+'">'+Hub.esc(p.priority)+'</span>':'');
+    return '<div class="r3d-stage"><article class="r3d" data-id="'+Hub.esc(p.id)+'">'+
+        '<div class="lift"><div class="rhead"><div class="rh-l">'+
+          '<h2><a class="rtitle" href="paper.html?id='+encodeURIComponent(p.id)+'">'+Hub.esc(m.short_title||p.title||m.title)+'</a></h2>'+
+          '<div class="rmeta">'+Hub.esc(m.authors||'')+'</div>'+
+        '</div>'+pri+'</div></div>'+
+        '<div class="figcar lift-sm" data-car="'+Hub.esc(p.id)+'">'+
+          '<div class="figstage"><div class="figtrack"></div></div>'+
+          '<div class="fnav"><button data-c="prev" aria-label="Previous">‹</button><div class="fdots"></div><button data-c="next" aria-label="Next">›</button></div>'+
+        '</div>'+
+        '<div class="rfoot lift">'+
+          '<a class="btn primary" href="paper.html?id='+encodeURIComponent(p.id)+'">Open full manuscript →</a>'+
+        '</div>'+
+      '</article></div>';
+  }
+
+  const cardSlides={};
+  let pubN=0;
+  for(const p of PUBLIC){
+    const m=await Hub.fetchData('research-assets/data/'+p.id+'.json');
+    if(!m) continue;
+    cardSlides[p.id]=[
+      ...(m.poster?[Research.posterSlide(m)]:[]),
+      Research.abstractSlide(m),
+      ...(m.figures||[]).map(Research.figureSlide),
+      Research.takeawaysSlide(m)
+    ];
+    const target = p.sec==='published' ? $('#published') : $('#active');
+    target.insertAdjacentHTML('beforeend', richCard(p,m));
+    if(p.sec==='published') pubN++;
+  }
+  // Show the Published heading only if at least one published card rendered.
+  if(pubN) $('#published-head').style.display='';
+
+  // Wire rich cards: carousels + tilt (lightbox is delegated globally by hub.js).
+  document.querySelectorAll('.r3d-stage').forEach(stage=>{
+    Research.tilt(stage);
+    const car=stage.querySelector('.figcar');
+    const id=car&&car.getAttribute('data-car');
+    if(id && cardSlides[id]) Research.carousel(car, cardSlides[id], {autoplay:7000});
+  });
+})();
+</script>
+</body>
+</html>

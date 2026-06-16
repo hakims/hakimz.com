@@ -1,0 +1,396 @@
+{
+  "id": "tcar-segmentation",
+  "title": "Zero-Shot Vessel Segmentation on Angiography: SAM 3 Text-Prompting with a Custom Candidate-Scoring Selector",
+  "short_title": "SAM3 Angio Segmentation",
+  "authors": "Hakimi A, et al.",
+  "affiliations": "Division of Vascular Surgery, Penn State Milton S. Hershey Medical Center, Hershey, PA",
+  "stage": "In progress · preliminary results — external validation on the Dr.SAM benchmark (n=500); carotid/TCAR evaluation ongoing.",
+  "drive": {
+    "manuscript_doc_id": "",
+    "manuscript_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
+    "figures_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
+    "project_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
+    "results_run_id": "",
+    "manuscript_modified": ""
+  },
+  "synced": "2026-06-16",
+  "links": {
+    "manuscript": "https://drive.google.com/drive/folders/1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
+    "published": null,
+    "code": null
+  },
+  "abstract": {
+    "Objectives": "Automated vessel segmentation on digital subtraction angiography (DSA) has historically required anatomy-specific, supervised models trained on hand-labeled data, limiting generalization across vascular territories. We tested whether a general-purpose, text-promptable segmentation foundation model (SAM 3) can segment opacified arteries on DSA zero-shot — with no fine-tuning, no per-anatomy retuning, and only natural-language prompts — and whether a lightweight, anatomy-agnostic post-processing layer can convert that capability into accurate masks.",
+    "Methods": "SAM 3 (facebook/sam3) was evaluated in three prompt arms — text-only (a fixed three-prompt \"smart-fallback\" ladder: \"arteries on angiogram\", \"opacified arteries on x-ray\", \"arteries on x-ray\"), bounding-box-only, and combined text+bbox — with model weights frozen throughout. External validation used the Dr.SAM benchmark (Zohranyan et al., CVPR Workshops 2024): 500 pelvic-iliac DSA images with hand-traced ground-truth masks and bounding-box metadata for 1,500 vessel segments, stratified into stenosis (n=77), aneurysm (n=61), and normal (n=382). Per-image Dice was computed against the ground-truth traces. A classical, anatomy-agnostic candidate-scoring layer (gates plus a soft quality score over geometric/intensity features, normalized within each image's own candidate pool) was then applied post-hoc to the cached SAM 3 candidate masks to select the best mask per image; the best-performing variant (scorer_v3_4) was chosen by a sweep over the 500-image cohort. The same text recipe was additionally applied to a hand-collected carotid TCAR completion-angiogram test set (4 cases / ~9 clips); these clips have no ground-truth traces, so only detection and mask-area were assessed (no Dice).",
+    "Results": "Raw zero-shot SAM 3 segmented arteries from text alone but with high variance: text-only mean Dice was 0.629 (median 0.927, std 0.433) across the 500 Dr.SAM images, with bounding-box-only 0.532 and combined text+bbox 0.632. By stratum, raw text-only Dice was 0.527 (stenosis), 0.655 (aneurysm), and 0.646 (normal); failures were predominantly under-segmentation or confident mislocalization rather than over-segmentation. Adding the anatomy-agnostic candidate-scoring/post-processing layer raised mean Dice from 0.629 to 0.933 (median 0.927→0.946; std 0.433→0.064), with 437/500 images reaching Tier A (Dice ≥ 0.90; Tier B 61, C 1, D 1). Post-processed Dice by stratum was 0.916 (stenosis), 0.937 (aneurysm), and 0.936 (normal). On the carotid TCAR clips, image-mode text prompting detected arteries in all clips (per-clip text-prompt scores ~0.354–0.903, median ~0.76), while video arms detected fewer (roughly 33–67% of clips); because no ground-truth traces exist yet, these results are detection/area-only and remain qualitative.",
+    "Conclusions": "These preliminary, unpublished results suggest that a frozen, text-promptable foundation model can perform zero-shot arterial segmentation on DSA across vascular territories without fine-tuning, and that a lightweight, anatomy-agnostic post-processing layer can close most of the gap between raw zero-shot output and hand-traced ground truth on an external benchmark. Several caveats temper this: the headline 0.933 mean Dice depends on the candidate-scoring layer (raw zero-shot text-only is 0.629), the carotid/TCAR evaluation has no ground-truth traces and is therefore detection-only and ongoing, and the work is limited to a single external benchmark with no confidence intervals or statistical hypothesis tests reported. The findings motivate, but do not yet establish, a generalizable zero-shot segmentation tool for angiography."
+  },
+  "takeaways": [
+    "Raw, frozen SAM 3 can segment opacified arteries on DSA from text prompts alone, but zero-shot accuracy is modest and highly variable: text-only mean Dice 0.629 (median 0.927, std 0.433) on the 500-image Dr.SAM benchmark — the median is good but a large tail of failures pulls the mean down.",
+    "A lightweight, anatomy-agnostic candidate-scoring/post-processing layer (no fine-tuning, no extra inference) raises mean Dice from 0.629 to 0.933 and collapses the variance (std 0.433→0.064) — 437/500 images reach Tier A (Dice ≥ 0.90). The 0.933 is a post-processed number, not raw zero-shot.",
+    "Across prompt modalities (raw zero-shot), text-only (0.629) and text+bbox (0.632) are comparable and both beat bbox-only (0.532); geometric box prompts alone underperform the model's own text grounding.",
+    "Post-processed accuracy is consistent across anomaly strata — stenosis 0.916, aneurysm 0.937, normal 0.936 — with stenosis the hardest (narrower, less-opacified vessels), mirroring the raw zero-shot ordering.",
+    "Carotid TCAR completion angiograms are an ongoing stress test only: image-mode text prompting detects arteries in 100% of clips (per-clip scores ~0.354–0.903), but with no ground-truth traces there is no Dice yet — these results are detection/area-only and preliminary."
+  ],
+  "figures": [
+    {
+      "key": "modality",
+      "num": "Figure 1",
+      "title": "Prompt modality (raw zero-shot, Dr.SAM n=500)",
+      "caption": "Raw zero-shot SAM 3 mean Dice by prompt arm on the 500-image Dr.SAM benchmark (hand-traced ground truth). Text-only (0.629) and combined text+bbox (0.632) are comparable; bounding-box-only (0.532) trails. No post-processing applied.",
+      "max": 0.8,
+      "yl": "Mean Dice",
+      "vd": 3,
+      "ad": 2,
+      "legend": [
+        {
+          "t": "Text-only",
+          "c": "#6DA5FF"
+        },
+        {
+          "t": "Bbox-only",
+          "c": "#E8A24C"
+        },
+        {
+          "t": "Text+bbox",
+          "c": "#8b8cf8"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Prompt arm",
+          "bars": [
+            {
+              "v": 0.629,
+              "c": "#6DA5FF",
+              "t": "0.629"
+            },
+            {
+              "v": 0.532,
+              "c": "#E8A24C",
+              "t": "0.532"
+            },
+            {
+              "v": 0.632,
+              "c": "#8b8cf8",
+              "t": "0.632"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "postproc",
+      "num": "Figure 2",
+      "title": "Post-processing closes the gap",
+      "caption": "Raw zero-shot text-only vs candidate-scoring/post-processed SAM 3 on the same 500 Dr.SAM images. Mean Dice rises 0.629→0.933 and median 0.927→0.946. The 0.933 includes the anatomy-agnostic post-processing layer (scorer_v3_4); the 0.629 is raw zero-shot text-only.",
+      "max": 1,
+      "yl": "Dice",
+      "vd": 3,
+      "ad": 2,
+      "legend": [
+        {
+          "t": "Raw zero-shot (text-only)",
+          "c": "#9aa6bf"
+        },
+        {
+          "t": "Post-processed (scorer_v3_4)",
+          "c": "#34D399"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Mean Dice",
+          "bars": [
+            {
+              "v": 0.629,
+              "c": "#9aa6bf",
+              "t": "0.629"
+            },
+            {
+              "v": 0.933,
+              "c": "#34D399",
+              "t": "0.933"
+            }
+          ]
+        },
+        {
+          "label": "Median Dice",
+          "bars": [
+            {
+              "v": 0.927,
+              "c": "#9aa6bf",
+              "t": "0.927"
+            },
+            {
+              "v": 0.946,
+              "c": "#34D399",
+              "t": "0.946"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "stratum",
+      "num": "Figure 3",
+      "title": "Dice by anomaly stratum (post-processed)",
+      "caption": "Post-processed (scorer_v3_4) mean Dice by Dr.SAM anomaly stratum (n=500 total: stenosis n=77, aneurysm n=61, normal n=382). Stenosis is hardest; aneurysm and normal are comparable. All values include the post-processing layer.",
+      "max": 1,
+      "yl": "Mean Dice (post-processed)",
+      "vd": 3,
+      "ad": 2,
+      "legend": [
+        {
+          "t": "Stenosis (n=77)",
+          "c": "#E8A24C"
+        },
+        {
+          "t": "Aneurysm (n=61)",
+          "c": "#8b8cf8"
+        },
+        {
+          "t": "Normal (n=382)",
+          "c": "#6DA5FF"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Anomaly stratum",
+          "bars": [
+            {
+              "v": 0.916,
+              "c": "#E8A24C",
+              "t": "0.916"
+            },
+            {
+              "v": 0.937,
+              "c": "#8b8cf8",
+              "t": "0.937"
+            },
+            {
+              "v": 0.936,
+              "c": "#6DA5FF",
+              "t": "0.936"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "tiers",
+      "num": "Figure 4",
+      "type": "stack",
+      "title": "Mask-quality tier distribution (post-processed)",
+      "caption": "Per-image Dice tier under the post-processed (scorer_v3_4) pipeline on Dr.SAM (n=500). Tier A = Dice ≥ 0.90; B = 0.50–0.90; C = 0–0.50; D = 0.00. 437/500 images reach Tier A; only 2 catastrophic failures remain (C+D). Includes post-processing.",
+      "yl": "Images (n)",
+      "legend": [
+        {
+          "t": "Tier A (≥ 0.90)",
+          "k": "a"
+        },
+        {
+          "t": "Tier B (0.50–0.90)",
+          "k": "b"
+        },
+        {
+          "t": "Tier C (0–0.50)",
+          "k": "c"
+        },
+        {
+          "t": "Tier D (0.00)",
+          "k": "d"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Post-processed",
+          "sub": "scorer_v3_4",
+          "segs": [
+            {
+              "v": 437,
+              "k": "a"
+            },
+            {
+              "v": 61,
+              "k": "b"
+            },
+            {
+              "v": 1,
+              "k": "c"
+            },
+            {
+              "v": 1,
+              "k": "d"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "key": "t1",
+      "label": "Table 1",
+      "caption": "Raw zero-shot SAM 3 Dice by prompt arm on the Dr.SAM benchmark (n=500; hand-traced ground truth). No post-processing.",
+      "columns": [
+        "Prompt arm",
+        "Mean Dice",
+        "Median",
+        "Std",
+        "Stenosis (n=77)",
+        "Aneurysm (n=61)",
+        "Normal (n=382)"
+      ],
+      "rows": [
+        [
+          "Text-only (smart-fallback)",
+          "0.629",
+          "0.927",
+          "0.433",
+          "0.527",
+          "0.655",
+          "0.646"
+        ],
+        [
+          "Bbox-only",
+          "0.532",
+          "0.533",
+          "0.118",
+          "0.494",
+          "0.545",
+          "0.538"
+        ],
+        [
+          "Text + bbox",
+          "0.632",
+          "0.637",
+          "0.117",
+          "0.607",
+          "0.647",
+          "0.636"
+        ]
+      ],
+      "note": "Dr.SAM (Zohranyan et al., CVPR-W 2024): 500 pelvic-iliac DSA images, hand-traced GT, 1,500 vessel-segment bboxes. All three arms use the same frozen facebook/sam3 checkpoint; only the prompt mode differs. Numbers are raw zero-shot — no candidate-scoring/post-processing."
+    },
+    {
+      "key": "t2",
+      "label": "Table 2",
+      "caption": "Raw zero-shot text-only vs post-processed SAM 3 on the same 500 Dr.SAM images, overall and by anomaly stratum.",
+      "columns": [
+        "Condition",
+        "Mean Dice",
+        "Median",
+        "Std",
+        "Tier A",
+        "Stenosis",
+        "Aneurysm",
+        "Normal"
+      ],
+      "rows": [
+        [
+          "Raw zero-shot (text-only)",
+          "0.629",
+          "0.927",
+          "0.433",
+          "303",
+          "0.527",
+          "0.655",
+          "0.646"
+        ],
+        [
+          "Post-processed (scorer_v3_4)",
+          "0.933",
+          "0.946",
+          "0.064",
+          "437",
+          "0.916",
+          "0.937",
+          "0.936"
+        ]
+      ],
+      "note": "n=500 (stenosis 77, aneurysm 61, normal 382). Tier A = Dice ≥ 0.90. The post-processing layer is an anatomy-agnostic candidate-scoring step applied to cached SAM 3 candidate masks (no additional model inference, no fine-tuning). Raw Tier-A count (303) from the Cond 1 failure analysis; post-processed counts from the scorer_v3_4 cohort summary. The 0.933 is NOT a raw zero-shot number."
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "paras": [
+        "Vessel segmentation on digital subtraction angiography (DSA) underpins quantitative angiographic analysis — from completion-angiogram adequacy to stenosis and aneurysm characterization — yet automated approaches have historically depended on anatomy-specific, supervised models trained on institution-specific hand-labeled data, which limits generalization across vascular territories and necessitates retraining when anatomy or acquisition style changes.",
+        "Recent promptable segmentation foundation models change this paradigm: SAM 3 (Meta, 2025) accepts natural-language concept prompts and exposes a detection-and-tracking head, enabling segmentation of a named concept without task-specific training. This work tests a narrow, falsifiable claim — that a frozen, text-promptable foundation model can segment opacified arteries on DSA zero-shot, across vascular territories, with no fine-tuning and no per-anatomy prompt retuning — and asks whether a lightweight, anatomy-agnostic post-processing layer can convert that raw capability into accurate masks.",
+        "The clinical motivation arose from carotid TCAR completion angiograms, where vessel masks could support automated assessment of completion-angiogram adequacy. Because the hand-collected TCAR clips lack ground-truth traces, the project's quantitative validation centers on the Dr.SAM benchmark (500 pelvic-iliac DSA images with hand-traced ground truth)[1], with TCAR retained as an ongoing, qualitative stress test on messy surgical-field angiography."
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods",
+      "subsections": [
+        {
+          "h": "Model and prompt arms",
+          "paras": [
+            "We evaluated SAM 3 (facebook/sam3)[2] with weights frozen throughout — no fine-tuning or weight modification was performed at any stage. Three prompt arms were defined: (1) text-only, using a fixed three-prompt \"smart-fallback\" ladder (\"arteries on angiogram\" at score threshold 0.3; \"opacified arteries on x-ray\" at 0.5; \"arteries on x-ray\" at 0.5; max-score-wins fusion); (2) bounding-box-only, using benchmark-provided vessel bboxes; and (3) combined text+bbox. The text ladder was deliberately modality-level (\"arteries on x-ray\") rather than anatomy-level — anatomy-specific terms such as \"carotid artery\" returned no detections in early testing — and was held fixed across territories to preserve the zero-shot, no-retuning framing.",
+            "An exploratory video track (SAM 3's video model with single- or peak-frame text prompting and bidirectional propagation through the clip) was run on the TCAR clips to test temporal integration, but the image-mode text arm is the primary recipe carried to external validation."
+          ]
+        },
+        {
+          "h": "External validation — Dr.SAM benchmark",
+          "paras": [
+            "External validation used the Dr.SAM benchmark[1]: 500 pelvic-iliac DSA images with hand-traced ground-truth masks and bounding-box metadata for 1,500 vessel segments, stratified into stenosis (n=77), aneurysm (n=61), and normal (n=382). For each image, Dice was computed between the predicted and ground-truth masks. The same text recipe used on carotid TCAR was applied unchanged to Dr.SAM — a pure cross-territory transfer test with no pelvic-specific prompt tuning. Dr.SAM (a SAM ViT-H pipeline with bounding-box-prompted iterative refinement and auto-found seed points) provides the model-versus-model reference for the bbox arm."
+          ]
+        },
+        {
+          "h": "Candidate-scoring / post-processing layer",
+          "paras": [
+            "Failure-mode analysis of the raw text-only run showed that errors were overwhelmingly under-segmentation or confident mislocalization rather than over-segmentation, and that a clean high-quality candidate mask was frequently already present in the model's candidate pool but not selected. We therefore built an anatomy-agnostic candidate-scoring layer: a universal geometric/intensity feature module followed by hard gates (e.g. area fraction and solidity bounds) and a soft quality score — a weighted sum of working features, each z-normalized within each image's own candidate pool so that no dataset-global constants are baked in (carrying the scorer to any anatomy). This layer operates post-hoc on cached candidate masks with no additional model inference and no fine-tuning. The best-performing variant on the 500-image cohort, scorer_v3_4 (an area-ramp family scorer chosen by a 72-combination sweep), is reported as the post-processed result.",
+            "Limitations of this layer are reported transparently: it is the source of the headline accuracy gain over raw zero-shot output, and its variant selection was tuned on the same external benchmark used for evaluation."
+          ]
+        },
+        {
+          "h": "Carotid TCAR test set",
+          "paras": [
+            "A hand-collected carotid TCAR completion-angiogram test set (4 cases, ~9 clips) was preprocessed from screen-captured MP4 recordings into frame sequences. These clips have no ground-truth vessel traces; consequently, only detection (did a text prompt fire above threshold and produce a non-empty mask) and mask-area were assessed — no Dice. This evaluation is qualitative and ongoing."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "subsections": [
+        {
+          "h": "Raw zero-shot prompt arms (Dr.SAM, n=500)",
+          "paras": [
+            "Raw zero-shot SAM 3 segmented arteries from text alone but with high variance. Text-only mean Dice was 0.629 (median 0.927, std 0.433); bounding-box-only was 0.532; and combined text+bbox was 0.632 (Table 1, Figure 1). The strong median against the modest mean reflects a bimodal distribution — many near-perfect masks alongside a tail of complete failures. By stratum, raw text-only Dice was 0.527 (stenosis), 0.655 (aneurysm), and 0.646 (normal). Failures were predominantly under-segmentation or confident mislocalization, not over-segmentation."
+          ]
+        },
+        {
+          "h": "Effect of the candidate-scoring layer",
+          "paras": [
+            "Applying the anatomy-agnostic candidate-scoring/post-processing layer (scorer_v3_4) to the same 500 images raised mean Dice from 0.629 to 0.933 (median 0.927→0.946) and collapsed the variance (std 0.433→0.064) (Table 2, Figure 2). Under the post-processed pipeline, 437/500 images reached Tier A (Dice ≥ 0.90), with 61 in Tier B, 1 in Tier C, and 1 in Tier D (Figure 4) — versus 303 Tier-A images for the raw run. Post-processed Dice was consistent across strata: 0.916 (stenosis), 0.937 (aneurysm), and 0.936 (normal) (Figure 3), with stenosis remaining the hardest stratum."
+          ]
+        },
+        {
+          "h": "Carotid TCAR (detection only, ongoing)",
+          "paras": [
+            "On the carotid TCAR completion-angiogram clips, image-mode text prompting detected arteries in all clips, with per-clip text-prompt scores ranging from approximately 0.354 to 0.903 (median ~0.76). Video arms detected arteries in fewer clips (roughly one-third to two-thirds). Because these clips have no ground-truth traces, no Dice could be computed; these results are detection/area-only and remain qualitative and ongoing."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discussion",
+      "title": "Discussion",
+      "paras": [
+        "These preliminary results suggest that a frozen, text-promptable foundation model can perform zero-shot arterial segmentation on DSA across vascular territories — the carotid-tuned text recipe transferred unchanged to pelvic-iliac angiography — without any fine-tuning. This is consistent with the project's sharpened thesis: highly accurate zero-shot vessel segmentation of DSA using foundation-model text prompts, with no anatomic specificity and no per-anatomy retuning.",
+        "The honest progression is central to interpreting these numbers. Raw zero-shot text-only accuracy was modest and bimodal (mean Dice 0.629, median 0.927). The headline mean Dice of 0.933 — with 437/500 images at Tier A and near-eliminated catastrophic failure — is achieved only after an anatomy-agnostic candidate-scoring/post-processing layer, which adds no model inference and no fine-tuning but is nonetheless the source of most of the accuracy gain. The work should be read as: a foundation model that already places a high-quality vessel mask in its candidate pool for most images, plus a lightweight classical selector that reliably picks it.",
+        "Several limitations temper any conclusion. First, the 0.933 depends on the post-processing layer, and the scorer variant was selected on the same external benchmark used to report accuracy. Second, the carotid/TCAR evaluation has no ground-truth traces and is therefore detection-only and ongoing — the original clinical motivation has not yet been quantitatively validated. Third, validation rests on a single external benchmark[1], with no confidence intervals and no statistical hypothesis tests reported here; stenosis remained the hardest stratum, consistent with narrower, less-opacified vessels offering less of the high-contrast tubular signal the model keys on.",
+        "Taken together, these findings motivate — but do not yet establish — a generalizable, zero-shot, text-promptable segmentation tool for angiography. Confirmatory next steps include ground-truth tracing for the carotid TCAR set, validation on additional benchmarks and territories, and statistical characterization (confidence intervals, held-out scorer tuning) before any deployment claim."
+      ]
+    }
+  ],
+  "references": [
+    "Zohranyan E, Navasardyan V, Navasardyan H, Borodin G, Navasardyan S, Shukla A, et al. Dr.SAM: An efficient framework for automated arteries segmentation and diameter calculation in angiographic images. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops; 2024.",
+    "Meta AI. SAM 3: Segment Anything with Concepts. Meta AI Research; 2025. Model: facebook/sam3."
+  ]
+}

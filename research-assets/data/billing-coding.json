@@ -1,0 +1,1130 @@
+{
+  "id": "billing-coding",
+  "title": "Artificial Intelligence in Vascular Surgery Coding: Evaluating Zero-Shot Models vs Knowledge-Augmented Prompting",
+  "short_title": "AI in Vascular Surgery Coding",
+  "authors": "Hakimi A, Soucy J, Rawat S, Zil-E-Ali A, Perry L, Aziz F",
+  "affiliations": "Division of Vascular Surgery & Office of Medical Education, Penn State Milton S. Hershey Medical Center / Penn State University College of Medicine, Hershey, PA",
+  "stage": "Manuscript draft — minor edits pending. EVS poster accepted (Annual Meeting, Sept 17–19 2026, Washington DC).",
+  "drive": {
+    "manuscript_doc_id": "1EkOkSTuLvQzpVZlqy10m8TiLG2f_wqli",
+    "manuscript_folder_id": "193kWmMzUfBG-grPk8Ox3smtITHNDNnN0",
+    "figures_folder_id": "1YhvxA5RDQoNBNTKAtmmBalYmXRCqaTYJ",
+    "project_folder_id": "17FsBIwn2So28BXP7Dc3Z-T9nyGWVl-l8",
+    "results_run_id": "1pP26NWT-mEoTbj_1olsNKzPgBwIwaSvL",
+    "manuscript_modified": "2026-05-06"
+  },
+  "synced": "2026-06-12",
+  "links": {
+    "manuscript": "https://drive.google.com/file/d/1EkOkSTuLvQzpVZlqy10m8TiLG2f_wqli/view",
+    "published": null,
+    "code": null
+  },
+  "poster": {
+    "image": "research-assets/figures/billing-coding-poster.png",
+    "file": "research-assets/figures/billing-coding-poster.png",
+    "label": "EVS 2026 poster",
+    "caption": "Eastern Vascular Society Annual Meeting · Sept 17–19, 2026 · Washington, DC"
+  },
+  "abstract": {
+    "Objectives": "Current Procedural Terminology (CPT) coding errors carry significant revenue and compliance consequences. Prior studies have benchmarked zero-shot Large Language Models (LLMs) for vascular surgery coding but have not evaluated the impact of training with structured CPT reference injection or assessed accuracy of modifier assignment.",
+    "Methods": "One hundred sixteen vascular surgery cases were coded by Claude Sonnet 4.6, Gemini 3.1 Pro, and GPT-5.2 under two conditions: (1) untrained (standard prompt) and (2) trained (structured vascular-specific CPT reference injected into the prompt). Each condition was run in triplicate at fixed temperature (0.3). Outputs were compared against certified coders as the gold standard. Primary outcomes included code-level F1 score, modifier F1 score, reimbursement delta versus human coders, and inter-run reproducibility. Wilcoxon signed-rank tests were used for pairwise comparisons.",
+    "Results": "Untrained models demonstrated moderate accuracy (F1: Gemini 0.54, GPT-5.2 0.49, Claude 0.39), all systematically undercoding relative to human coders. Training significantly improved accuracy in all three models: Claude 0.39→0.68, Gemini 0.54→0.76, GPT-5.2 0.49→0.59 (all p<0.001). Trained Claude shifted to overcoding (+$380/case, p=0.004) and GPT-5.2 trended toward it (+$256/case, p=0.10), while trained Gemini matched the gold standard (+$11/case, p=0.85). Modifier assignment was uniformly poor across all models and conditions (best trained F1=0.46, Gemini). Trained Gemini also showed the highest inter-run reproducibility (Jaccard 0.91, 69% perfect agreement across triplicate runs) vs 0.82 Claude and 0.78 GPT-5.2.",
+    "Conclusions": "Structured CPT reference injection significantly improves LLM coding accuracy beyond prior zero-shot baselines, with Gemini 3.1 Pro achieving the highest accuracy and near-gold-standard reimbursement fidelity in the trained condition. Overcoding risk in trained models warrants attention for compliance. We present the first systematic evaluation of LLM modifier assignment in vascular surgery, highlighting poor performance as a critical barrier to clinical deployment."
+  },
+  "takeaways": [
+    "Knowledge-augmented prompting — injecting a structured vascular CPT reference into the prompt — raised coding F1 for all three frontier LLMs (pooled 0.47→0.67, p<0.0001) with no fine-tuning or weight changes.",
+    "Gemini 3.1 Pro was the standout: trained F1 0.76, near-gold-standard reimbursement (+1.4%, p=0.85), and best reproducibility (Jaccard 0.91; 69% perfect 3-run agreement).",
+    "Training fixed undercoding but introduced overcoding in Claude (+$380/case, +50%) and GPT-5.2 (+$256/case), concentrated in catheter-placement (36245–36248) and all-inclusive EVAR (34703) codes — a real compliance risk.",
+    "First systematic look at modifier assignment: uniformly poor (best trained F1 0.46). Distinct-services (−59) stayed at 0% recall and laterality paradoxically worsened with training — a critical barrier to autonomous use.",
+    "Benefit scaled with case complexity — the largest training effect was in high-code-count cases (Cohen's d=1.74) — exactly where human coders struggle most.",
+    "Residual errors concentrate at picking the exact code within a correctly identified procedure family (category recall 0.88–0.91), supporting a human-in-the-loop workflow where coders verify granular selection."
+  ],
+  "figures": [
+    {
+      "key": "f1",
+      "num": "Figure 1",
+      "title": "Coding accuracy (F1) by model and training",
+      "caption": "Mean F1 improved with knowledge-augmented prompting for every model (Claude 0.39→0.68, Gemini 0.54→0.76, GPT-5.2 0.49→0.59; all p<0.001). Each model carries its own hue; faded = untrained, solid = trained. Error bars: 95% CI across the 116 cases.",
+      "max": 0.85,
+      "yl": "Mean F1 score",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Untrained (faded)",
+          "c": "#9aa6bf",
+          "o": 0.4
+        },
+        {
+          "t": "Trained (solid)",
+          "c": "#9aa6bf"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "bars": [
+            {
+              "v": 0.39,
+              "k": "claude",
+              "u": true,
+              "ci": [
+                0.329,
+                0.451
+              ]
+            },
+            {
+              "v": 0.678,
+              "k": "claude",
+              "ci": [
+                0.623,
+                0.734
+              ]
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "bars": [
+            {
+              "v": 0.538,
+              "k": "gemini",
+              "u": true,
+              "ci": [
+                0.47,
+                0.606
+              ]
+            },
+            {
+              "v": 0.757,
+              "k": "gemini",
+              "ci": [
+                0.705,
+                0.81
+              ]
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "bars": [
+            {
+              "v": 0.494,
+              "k": "gpt",
+              "u": true,
+              "ci": [
+                0.432,
+                0.556
+              ]
+            },
+            {
+              "v": 0.587,
+              "k": "gpt",
+              "ci": [
+                0.527,
+                0.646
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "errors",
+      "num": "Figure 2",
+      "type": "stack",
+      "title": "Coding error distribution by model and condition",
+      "caption": "Share of cases by error type (n=116 each). Training shifted untrained undercoding/miscoding toward correct coding, but surfaced overcoding in Claude and GPT-5.2. Rated miscoding = wrong codes traceable to the training reference; unrated = base-model or hallucinated codes.",
+      "yl": "% of cases",
+      "legend": [
+        {
+          "t": "Correct",
+          "k": "correct"
+        },
+        {
+          "t": "Overcoding",
+          "k": "over"
+        },
+        {
+          "t": "Undercoding",
+          "k": "under"
+        },
+        {
+          "t": "Miscoding — rated",
+          "k": "mis_rated"
+        },
+        {
+          "t": "Miscoding — unrated",
+          "k": "mis_unrated"
+        },
+        {
+          "t": "No response",
+          "k": "noresp"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "sub": "Untrained",
+          "segs": [
+            {
+              "v": 12.1,
+              "k": "correct"
+            },
+            {
+              "v": 13.8,
+              "k": "over"
+            },
+            {
+              "v": 3.4,
+              "k": "under"
+            },
+            {
+              "v": 40.5,
+              "k": "mis_rated"
+            },
+            {
+              "v": 28.4,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 1.7,
+              "k": "noresp"
+            }
+          ]
+        },
+        {
+          "label": "Claude",
+          "sub": "Trained",
+          "segs": [
+            {
+              "v": 34.5,
+              "k": "correct"
+            },
+            {
+              "v": 24.1,
+              "k": "over"
+            },
+            {
+              "v": 4.3,
+              "k": "under"
+            },
+            {
+              "v": 31,
+              "k": "mis_rated"
+            },
+            {
+              "v": 5.2,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 0.9,
+              "k": "noresp"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "sub": "Untrained",
+          "segs": [
+            {
+              "v": 32.8,
+              "k": "correct"
+            },
+            {
+              "v": 14.7,
+              "k": "over"
+            },
+            {
+              "v": 4.3,
+              "k": "under"
+            },
+            {
+              "v": 26.7,
+              "k": "mis_rated"
+            },
+            {
+              "v": 19,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 2.6,
+              "k": "noresp"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "sub": "Trained",
+          "segs": [
+            {
+              "v": 47.4,
+              "k": "correct"
+            },
+            {
+              "v": 14.7,
+              "k": "over"
+            },
+            {
+              "v": 5.2,
+              "k": "under"
+            },
+            {
+              "v": 29.3,
+              "k": "mis_rated"
+            },
+            {
+              "v": 2.6,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 0.9,
+              "k": "noresp"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "sub": "Untrained",
+          "segs": [
+            {
+              "v": 22.4,
+              "k": "correct"
+            },
+            {
+              "v": 12.1,
+              "k": "over"
+            },
+            {
+              "v": 6,
+              "k": "under"
+            },
+            {
+              "v": 43.1,
+              "k": "mis_rated"
+            },
+            {
+              "v": 15.5,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 0.9,
+              "k": "noresp"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "sub": "Trained",
+          "segs": [
+            {
+              "v": 25.9,
+              "k": "correct"
+            },
+            {
+              "v": 19.8,
+              "k": "over"
+            },
+            {
+              "v": 5.2,
+              "k": "under"
+            },
+            {
+              "v": 43.1,
+              "k": "mis_rated"
+            },
+            {
+              "v": 3.4,
+              "k": "mis_unrated"
+            },
+            {
+              "v": 2.6,
+              "k": "noresp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "complexity",
+      "num": "Figure 3",
+      "title": "Training benefit scales with case complexity",
+      "caption": "Mean F1 by case-complexity tier (pooled across models). The training effect was largest in high-complexity cases (Cohen's d=1.74), which had the lowest untrained baseline. Error bars: 95% CI (1.96×SEM) across the paired case observations in each tier.",
+      "max": 0.8,
+      "yl": "Mean F1 score",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Untrained",
+          "c": "#8b8cf8",
+          "o": 0.4
+        },
+        {
+          "t": "Trained",
+          "c": "#8b8cf8"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Low (1–2, n=74)",
+          "bars": [
+            {
+              "v": 0.477,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.053
+            },
+            {
+              "v": 0.698,
+              "c": "#8b8cf8",
+              "e": 0.048
+            }
+          ]
+        },
+        {
+          "label": "Mod (3–4, n=32)",
+          "bars": [
+            {
+              "v": 0.499,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.048
+            },
+            {
+              "v": 0.618,
+              "c": "#8b8cf8",
+              "e": 0.039
+            }
+          ]
+        },
+        {
+          "label": "High (≥5, n=10)",
+          "bars": [
+            {
+              "v": 0.373,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.099
+            },
+            {
+              "v": 0.678,
+              "c": "#8b8cf8",
+              "e": 0.075
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "reimbursement",
+      "num": "Figure 4",
+      "title": "Reimbursement fidelity vs the gold standard",
+      "caption": "Mean reimbursement per case. Untrained models undercoded; with training only Gemini matched human coders ($767, +1.4%), while Claude and GPT-5.2 overcoded by +$380 and +$256/case.",
+      "max": 1300,
+      "yl": "Mean reimbursement / case ($)",
+      "vd": 0,
+      "ad": 0,
+      "legend": [
+        {
+          "t": "Gold standard (human coders)",
+          "k": "ref"
+        },
+        {
+          "t": "Untrained AI (faded)",
+          "c": "#9aa6bf",
+          "o": 0.4
+        },
+        {
+          "t": "Trained AI (solid)",
+          "c": "#9aa6bf"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "bars": [
+            {
+              "v": 756,
+              "k": "ref",
+              "t": "$756"
+            },
+            {
+              "v": 660,
+              "k": "claude",
+              "u": true,
+              "t": "$660"
+            },
+            {
+              "v": 1136,
+              "k": "claude",
+              "t": "$1,136"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "bars": [
+            {
+              "v": 756,
+              "k": "ref",
+              "t": "$756"
+            },
+            {
+              "v": 577,
+              "k": "gemini",
+              "u": true,
+              "t": "$577"
+            },
+            {
+              "v": 767,
+              "k": "gemini",
+              "t": "$767"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "bars": [
+            {
+              "v": 756,
+              "k": "ref",
+              "t": "$756"
+            },
+            {
+              "v": 675,
+              "k": "gpt",
+              "u": true,
+              "t": "$675"
+            },
+            {
+              "v": 1012,
+              "k": "gpt",
+              "t": "$1,012"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "modifier",
+      "num": "Modifier accuracy",
+      "title": "Modifier assignment was uniformly poor",
+      "caption": "Overall modifier F1 stayed low in every condition (best trained F1=0.46, Gemini). Distinct-services (−59) recall was 0% across all models and conditions. (Derived from the modifier analysis; not a numbered manuscript figure.)",
+      "max": 0.6,
+      "yl": "Modifier F1 score",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Untrained (faded)",
+          "c": "#9aa6bf",
+          "o": 0.4
+        },
+        {
+          "t": "Trained (solid)",
+          "c": "#9aa6bf"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "bars": [
+            {
+              "v": 0.273,
+              "k": "claude",
+              "u": true
+            },
+            {
+              "v": 0.338,
+              "k": "claude"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "bars": [
+            {
+              "v": 0.351,
+              "k": "gemini",
+              "u": true
+            },
+            {
+              "v": 0.46,
+              "k": "gemini"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "bars": [
+            {
+              "v": 0.308,
+              "k": "gpt",
+              "u": true
+            },
+            {
+              "v": 0.335,
+              "k": "gpt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "hierarchy",
+      "num": "Supplementary Figure 1",
+      "title": "Where accuracy comes from (trained)",
+      "caption": "Trained models reliably recognize the operation (procedure-family and within-family recall ≈0.85–0.92) even when the exact code is missed — supporting a coder-verifies-granularity workflow. Shown for the trained condition; each model keeps its hue.",
+      "max": 1,
+      "yl": "Score (trained)",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Exact code match",
+          "c": "#9aa6bf",
+          "o": 0.4
+        },
+        {
+          "t": "Procedure family (group F1)",
+          "c": "#9aa6bf",
+          "o": 0.72
+        },
+        {
+          "t": "Within-family (category F1)",
+          "c": "#9aa6bf"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "bars": [
+            {
+              "v": 0.345,
+              "k": "claude",
+              "o": 0.4
+            },
+            {
+              "v": 0.858,
+              "k": "claude",
+              "o": 0.72
+            },
+            {
+              "v": 0.877,
+              "k": "claude"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "bars": [
+            {
+              "v": 0.474,
+              "k": "gemini",
+              "o": 0.4
+            },
+            {
+              "v": 0.901,
+              "k": "gemini",
+              "o": 0.72
+            },
+            {
+              "v": 0.916,
+              "k": "gemini"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "bars": [
+            {
+              "v": 0.259,
+              "k": "gpt",
+              "o": 0.4
+            },
+            {
+              "v": 0.851,
+              "k": "gpt",
+              "o": 0.72
+            },
+            {
+              "v": 0.876,
+              "k": "gpt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "proctype",
+      "num": "Supplementary Figure 2",
+      "title": "Mean F1 by procedure type",
+      "caption": "Pooled across models for procedure types with ≥5 cases. Wound care showed the largest training gain (0.27→0.70); peripheral arterial endovascular remained hardest (0.43→0.56) due to add-on code selection. Error bars: SD across the three models' per-procedure means.",
+      "max": 1,
+      "yl": "Mean F1 score",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Untrained",
+          "c": "#8b8cf8",
+          "o": 0.4
+        },
+        {
+          "t": "Trained",
+          "c": "#8b8cf8"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Wound",
+          "bars": [
+            {
+              "v": 0.271,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.069
+            },
+            {
+              "v": 0.695,
+              "c": "#8b8cf8",
+              "e": 0.092
+            }
+          ]
+        },
+        {
+          "label": "PA endo",
+          "bars": [
+            {
+              "v": 0.433,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.015
+            },
+            {
+              "v": 0.562,
+              "c": "#8b8cf8",
+              "e": 0.075
+            }
+          ]
+        },
+        {
+          "label": "Amput.",
+          "bars": [
+            {
+              "v": 0.615,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.091
+            },
+            {
+              "v": 0.692,
+              "c": "#8b8cf8",
+              "e": 0.137
+            }
+          ]
+        },
+        {
+          "label": "PA open",
+          "bars": [
+            {
+              "v": 0.483,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.064
+            },
+            {
+              "v": 0.692,
+              "c": "#8b8cf8",
+              "e": 0.03
+            }
+          ]
+        },
+        {
+          "label": "Venous",
+          "bars": [
+            {
+              "v": 0.714,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.224
+            },
+            {
+              "v": 0.88,
+              "c": "#8b8cf8",
+              "e": 0.026
+            }
+          ]
+        },
+        {
+          "label": "Aortic",
+          "bars": [
+            {
+              "v": 0.408,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.209
+            },
+            {
+              "v": 0.509,
+              "c": "#8b8cf8",
+              "e": 0.074
+            }
+          ]
+        },
+        {
+          "label": "Dx vasc",
+          "bars": [
+            {
+              "v": 0.656,
+              "c": "#8b8cf8",
+              "u": true,
+              "e": 0.07
+            },
+            {
+              "v": 0.689,
+              "c": "#8b8cf8",
+              "e": 0.051
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "jaccard",
+      "num": "Supplementary Figure 3",
+      "title": "Reproducibility (inter-run Jaccard)",
+      "caption": "Training raised inter-run agreement across triplicate runs for all models; trained Gemini reached Jaccard 0.91 with perfect 3-run agreement in 69% of cases. Faded = untrained, solid = trained.",
+      "max": 1,
+      "yl": "Inter-run Jaccard",
+      "vd": 2,
+      "ad": 1,
+      "legend": [
+        {
+          "t": "Untrained (faded)",
+          "c": "#9aa6bf",
+          "o": 0.4
+        },
+        {
+          "t": "Trained (solid)",
+          "c": "#9aa6bf"
+        }
+      ],
+      "groups": [
+        {
+          "label": "Claude",
+          "bars": [
+            {
+              "v": 0.698,
+              "k": "claude",
+              "u": true
+            },
+            {
+              "v": 0.82,
+              "k": "claude"
+            }
+          ]
+        },
+        {
+          "label": "Gemini",
+          "bars": [
+            {
+              "v": 0.755,
+              "k": "gemini",
+              "u": true
+            },
+            {
+              "v": 0.911,
+              "k": "gemini"
+            }
+          ]
+        },
+        {
+          "label": "GPT-5.2",
+          "bars": [
+            {
+              "v": 0.7,
+              "k": "gpt",
+              "u": true
+            },
+            {
+              "v": 0.774,
+              "k": "gpt"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "key": "t1",
+      "label": "Table 1",
+      "caption": "Sample characteristics — case distribution by procedure category.",
+      "columns": [
+        "Procedure category",
+        "Cases (n)",
+        "%"
+      ],
+      "rows": [
+        [
+          "Wound care",
+          "28",
+          "24.1"
+        ],
+        [
+          "Peripheral arterial — endovascular",
+          "22",
+          "19.0"
+        ],
+        [
+          "Amputation",
+          "13",
+          "11.2"
+        ],
+        [
+          "Peripheral arterial — open",
+          "12",
+          "10.3"
+        ],
+        [
+          "Venous — open",
+          "12",
+          "10.3"
+        ],
+        [
+          "Aortic — endovascular",
+          "8",
+          "6.9"
+        ],
+        [
+          "Diagnostic vascular",
+          "7",
+          "6.0"
+        ],
+        [
+          "Carotid / cerebrovascular",
+          "4",
+          "3.4"
+        ],
+        [
+          "Dialysis access",
+          "3",
+          "2.6"
+        ],
+        [
+          "Central venous access",
+          "2",
+          "1.7"
+        ],
+        [
+          "Thoracic outlet / cervical rib",
+          "2",
+          "1.7"
+        ],
+        [
+          "Venous — endovascular",
+          "2",
+          "1.7"
+        ],
+        [
+          "Aortic — open",
+          "1",
+          "0.9"
+        ],
+        {
+          "total": true,
+          "cells": [
+            "Total",
+            "116",
+            "100"
+          ]
+        }
+      ],
+      "note": "116 billable cases from a single academic vascular surgeon (2025–2026): 106 operative notes + 10 clinic procedure notes. The human-coder reference contained 88 unique CPT codes across 13 procedure categories."
+    },
+    {
+      "key": "t2",
+      "label": "Table 2",
+      "caption": "Per-model accuracy by training condition (means; exact-match shown for the trained arm).",
+      "columns": [
+        "Model",
+        "Condition",
+        "F1",
+        "Precision",
+        "Recall",
+        "Exact match"
+      ],
+      "rows": [
+        [
+          "Claude Sonnet 4.6",
+          "Untrained",
+          "0.390",
+          "0.356",
+          "0.474",
+          "—"
+        ],
+        [
+          "Claude Sonnet 4.6",
+          "Trained",
+          "0.678",
+          "0.637",
+          "0.787",
+          "34.2%"
+        ],
+        [
+          "Gemini 3.1 Pro",
+          "Untrained",
+          "0.538",
+          "0.530",
+          "0.576",
+          "—"
+        ],
+        [
+          "Gemini 3.1 Pro",
+          "Trained",
+          "0.757",
+          "0.744",
+          "0.803",
+          "45.7%"
+        ],
+        [
+          "GPT-5.2",
+          "Untrained",
+          "0.494",
+          "0.472",
+          "0.568",
+          "—"
+        ],
+        [
+          "GPT-5.2",
+          "Trained",
+          "0.587",
+          "0.562",
+          "0.668",
+          "24.7%"
+        ]
+      ],
+      "note": "Wilcoxon signed-rank, trained vs untrained: F1 improvement p<0.001 for all three models."
+    }
+  ],
+  "sections": [
+    {
+      "id": "background",
+      "title": "Background",
+      "paras": [
+        "In the United States, billing and insurance-related administrative costs exceed $470 billion annually, with physician practices and hospitals bearing a disproportionate share of this burden[1]. Manual coding errors compound these costs: error rates among trained medical coders have been reported at up to 20%, contributing an estimated $18.2 billion in annual losses nationally[2].",
+        "Vascular surgery is particularly vulnerable. The specialty's CPT landscape is defined by overlapping procedural families, add-on code hierarchies, National Correct Coding Initiative (NCCI) bundling rules, and a modifier system governing laterality, bilateral procedures, professional components, and teaching physician attestation. Ayub et al. demonstrated that a 9.6% miscoding rate across 104 elective endovascular aneurysm repairs resulted in $587,799 in lost billing opportunity at a single institution[3]. Vascular Quality Initiative data show that nearly 40% of participating centers systematically underbill for peripheral vascular interventions[4].",
+        "At the same time, Medicare reimbursements for vascular procedures have declined 10.4% despite rising facility charges[5]. Targeted documentation improvements can recapture revenue — Seligson et al. reported a 65% increase in CMS reimbursement through a clinical documentation initiative on a vascular surgery service[6]. Forensic billing analyses show vascular surgery generates over $26 million in gross revenue plus over $10 million in downstream revenue for health systems, underscoring the financial importance of accurate coding at the point of service[7].",
+        "Early approaches to automated coding relied on rule-based natural language processing (NLP) and supervised machine learning trained on institution-specific data. In spine surgery, Zaidat et al. trained an XLNet model on 922 operative notes achieving AUROC 0.95 and 87% class-by-class accuracy for CPT generation[8]. For diagnosis coding, deep learning has achieved F-scores exceeding 0.95 for ICD-10 prediction[12]. Domain-specific fine-tuning has been a consistent differentiator (El Moheb et al. reached AUPRC 0.981 for breast surgery[15]; Hou et al. raised ICD-10 exact match from <1% to 97%[2]) — but these supervised approaches uniformly require institution-specific training data and templated documentation, limiting generalizability and necessitating retraining when documentation styles or taxonomies change.",
+        "Instruction-tuned LLMs created a different paradigm: coding directly from free-text operative notes with no specialty-specific training data. In vascular surgery, Madris et al. compared ChatGPT-4o and Perplexity Pro against a finance-department reference and reported CPT-level accuracy of 45–52%[17]. Across specialties, accuracy has ranged from 7.7% in plastic surgery[18] to 88% in cardiac critical care[19]. The major limitation across all these studies is testing models in a zero-shot configuration — no specialty-specific CPT reference, only baseline model performance. Only one prior study attempted modifier assignment, finding 0% combined CPT-plus-modifier accuracy in craniofacial surgery[27].",
+        "Three principal gaps informed this study. First, whether structured, specialty-specific CPT guidance improves LLM accuracy beyond zero-shot performance has not been prospectively tested in vascular surgery — this untrained-vs-trained controlled two-arm design has not been evaluated in any surgical specialty. Second, modifier assignment accuracy is almost entirely absent from the literature, yet modifiers govern laterality, bilateral procedures, attestation, professional components, and distinct services, each with direct reimbursement and compliance ramifications. Third, LLMs are inherently stochastic, yet no prior surgical coding study has measured inter-run reproducibility — a prerequisite for clinical trust."
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods",
+      "subsections": [
+        {
+          "h": "Study Design",
+          "paras": [
+            "We evaluated three current-generation LLMs — GPT-5.2 (OpenAI), Claude Sonnet 4.6 (Anthropic), and Gemini 3.1 Pro (Google DeepMind) — in assigning CPT codes and modifiers from vascular surgery procedural and operative documentation. A two-arm parallel design was used: an untrained arm (operative note with standardized task instructions only) and a trained arm (additionally provided a structured vascular-specific billing reference within the prompt context window). 'Trained' refers to in-context knowledge augmentation at inference time, not modification of model weights; no fine-tuning was performed.",
+            "Each model was run on every case under both conditions, with three independent runs per case-model-condition combination, yielding 2,088 LLM queries (116 cases × 3 models × 2 conditions × 3 runs). The finance-department-assigned CPT codes served as the reference standard for all accuracy comparisons."
+          ]
+        },
+        {
+          "h": "Data Collection",
+          "paras": [
+            "The dataset consisted of 116 de-identified cases (106 operative notes and 10 clinic procedure notes) from a single academic vascular surgeon performed in 2025–2026, spanning 13 procedure categories including peripheral arterial (open and endovascular), aortic (open and endovascular), carotid and cerebrovascular, venous (open and endovascular), dialysis access, wound care, and amputation.",
+            "All three models received identical prompts at temperature 0.3 (low stochasticity to enable reproducibility testing while preserving mild inter-run variance) and were instructed to return structured JSON containing CPT codes, modifiers, and a rationale field. The reference standard retained codes submitted per institutional billing practice even when reimbursed $0 under the CMS schedule (e.g., TEVAR S&I 75957–75959), and excluded codes not billed through the physician fee schedule (e.g., 76937 ultrasound guidance, 97605–97608 NPWT); models were penalized for generating those. Only primary CPT codes and associated modifiers were evaluated. Reimbursement rates were derived from the 2025 CMS National Physician Fee Schedule. A total of 426 CPT codes across 17 clinical sections were included."
+          ]
+        },
+        {
+          "h": "Training Reference Construction",
+          "paras": [
+            "A structured clinical knowledge document (~600 lines) was developed for the trained arm, containing three sections: (A) a CPT code list with 2025 CMS reimbursement rates, status flags, and inline annotations for bundling rules, code supersession, and common errors; (B) a modifier reference covering laterality (RT/LT), bilateral (−50), multiple procedures (−51), distinct services (−59), professional component (−26), repeat procedures (−78), facility supervision (−AS), and teaching physician (GC); and (C) NCCI bundling principles and add-on code rules.",
+            "Key design features included treating institutional billing prohibitions as absolute rules, vessel-to-catheter order mapping to prevent incorrect selectivity coding, rules reflecting the peripheral arterial endovascular code transition effective Jan 1 2026 (retiring 37221–37235 in favor of 37254–37299), and NCCI bundling annotations for all-inclusive procedure codes (e.g., TCAR 37215, EVAR 34701–34848)."
+          ]
+        },
+        {
+          "h": "Outcomes & Statistics",
+          "paras": [
+            "Primary outcomes were coding accuracy, modifier accuracy, and reproducibility. Coding accuracy used exact match rate, precision, recall, and F1, calculated per run and averaged across three runs. Modifier accuracy used majority-vote consensus (a code-modifier pair retained only if present in ≥2 of 3 runs). Hierarchical accuracy was assessed at the group level (correct CPT family) and category level (correct code within family). Reproducibility used Jaccard similarity and perfect-agreement rate.",
+            "Secondary outcomes included the distribution of coding errors (correct, overcoding, undercoding, miscoding-rated, miscoding-unrated, no response) and reimbursement analysis (mean reimbursement per case vs reference). Statistics used Wilcoxon signed-rank tests, Cohen's d, and 95% confidence intervals, with sub-analyses for procedure-complexity stratification (low 1–2, moderate 3–4, high ≥5 codes) and procedure type. Analyses were performed in Python 3.12 (NumPy, SciPy). The study used only de-identified data, followed STARD-AI reporting guidelines, and received IRB approval."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "subsections": [
+        {
+          "h": "Sample & coding accuracy",
+          "paras": [
+            "A total of 116 billable cases were reviewed; the human-coder reference contained 88 unique CPT codes. Case-type distribution was led by wound care (n=28, 24.1%), peripheral arterial endovascular (n=22, 19.0%), amputation (n=13, 11.2%), peripheral arterial open (n=12, 10.3%), and venous open (n=12, 10.3%) — full distribution in Table 1.",
+            "Mean F1 improved with knowledge-augmented prompting for all three models: Claude 0.390→0.678, Gemini 0.538→0.757, GPT-5.2 0.494→0.587 (all p<0.001; Figure 1, Table 2). Precision and recall improved significantly for all models. Exact match reached 45.7% (trained Gemini), 34.2% (trained Claude), and 24.7% (trained GPT-5.2). At the code-family level, recall improved with training for all models (to 0.84–0.89), and within-family recall approached ~91% under the trained condition (Supplementary Figure 1)."
+          ]
+        },
+        {
+          "h": "Errors, modifiers & reproducibility",
+          "paras": [
+            "All untrained models produced predominantly undercoded or miscoded outputs; training shifted the distribution toward correct coding but surfaced overcoding in Claude and GPT-5.2, and dramatically reduced miscoding-unrated errors (Claude 33→6, Gemini 22→3, GPT 18→4; Figure 2).",
+            "Overall modifier F1 was poor in every condition (best trained F1=0.46, Gemini). Facility supervision (−AS) showed the largest training effect (0–16%→42–81% recall) and professional component (−26) improved substantially, while laterality behaved paradoxically (trained Gemini 52%→68%, trained Claude 48%→39%, GPT 55%→27%) and distinct services (−59) had 0% recall (0/35) for every model in every condition.",
+            "Training improved inter-run Jaccard similarity across all models (Claude 0.698→0.820, Gemini 0.755→0.911, GPT 0.700→0.774); trained Gemini showed perfect three-run agreement in 69.0% of cases (Supplementary Figure 3)."
+          ]
+        },
+        {
+          "h": "Complexity & reimbursement",
+          "paras": [
+            "Training significantly improved mean F1 at every complexity tier (low 0.477→0.698, moderate 0.499→0.618, high 0.373→0.678; all p<0.0001). The magnitude scaled with complexity: the effect size at high complexity (Cohen's d=1.736) was the largest in the study (Figure 3). Procedure-type gains varied, with wound care improving most and peripheral arterial endovascular remaining hardest (Supplementary Figure 2).",
+            "In the untrained condition, all models undercoded the reference (Claude −12.7%, Gemini −23.7%, GPT −10.8%). With training, Gemini produced mean reimbursement of $766.96 (+1.4%, p=0.852) — the only model to match human coders. Trained Claude overcoded by $380.09/case (+50.3%, p=0.004) and trained GPT by $256.14/case (+33.9%, p=0.102), concentrated in the catheter-placement hierarchy (36245–36248) and all-inclusive EVAR (34703) (Figure 4). In a consensus sub-analysis of 44 cases where all three models independently overcoded but agreed, 15 were genuine NCCI-bundling errors while 29 contained potentially defensible additions (skin substitute grafts, multilayer compression wraps, fluoroscopic guidance, paired venographic S&I) commonly omitted under time-pressured manual coding."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discussion",
+      "title": "Discussion",
+      "paras": [
+        "In this prospective two-arm comparison, knowledge-augmented prompting produced significant, consistent improvements in coding accuracy across all three tested LLMs (pooled mean F1 0.474→0.674, p<0.0001), achieved without any fine-tuning, proprietary training data, or weight modification — relying instead on a single clinical reference document included with a standardized prompt. This contrasts with the resource-intensive, institution-specific fine-tuning reported elsewhere (e.g., Zaidat et al.'s 87% class-by-class accuracy from an XLNet model trained on 922 notes[8] is comparable to our trained category-level F1 of 0.87–0.91), suggesting a more lightweight, deployable alternative for institutions lacking fine-tuning infrastructure.",
+        "Although exact-match performance lagged aggregate accuracy, the hierarchical breakdown clarifies where the gap originates: trained models reliably recognized the type of operation (family recall 0.84–0.89; within-family 0.88–0.91). Residual errors are concentrated at selecting the specific code within a correctly identified family, lending itself to a hybrid workflow in which certified coders verify granular selection from a model that has already identified the operation.",
+        "Reproducibility, seldom described in prior CPT-coding studies, improved with training for all models — a prerequisite for any billing application, since claim-to-claim variability on the same note would drive rejected claims. Modifier accuracy was overall poor and not uniformly affected by training: rule-governed modifiers (−AS, −26) improved markedly, while −59 remained at 0% recall because the operative note alone lacks the cross-claim documentation those modifiers require. Laterality declined paradoxically in two models despite continued correct identification of operative side in the rationale — an attachment failure, not a discrimination failure, plausibly reflecting attention consumed by the larger reference document.",
+        "Financially, training fixed baseline undercoding but introduced overcoding in two of three models. Only Gemini achieved fidelity similar to human coders. The consensus sub-analysis showed that a meaningful portion of residual 'overcoding' was attributable to how the training reference was constructed rather than to hallucination, with some additions representing potentially unrealized reimbursement. Still, these findings underscore the legal and financial implications of LLM-based coding and the need for validation safeguards before deployment.",
+        "Taken together, these findings position LLMs not as replacements for medical coders but as tools that augment surgical billing: an initial coding pass verified by a certified coder; greatest value for high-code-count cases (≥5 reference codes), where training produced the largest effect (Cohen's d=1.736); and a 'second set of eyes' that flags low-dollar, frequently underbilled add-on codes supported by documentation but commonly omitted under time pressure.",
+        "Limitations include a single institution, English-language notes from one surgeon, institution-specific billing exclusions that modestly under-represent true accuracy, an absent explicit bundling rule for catheter-placement codes with peripheral interventions (a fixable reference-level gap that drove much of the overcoding), and a sample size limiting definitive conclusions across procedure types. Knowledge-augmented prompting significantly improves LLM-based vascular surgery CPT coding, with the largest gains in high-complexity cases; of the three models, Gemini 3.1 Pro achieved the best combination of accuracy, financial fidelity, and reproducibility — supporting a human-in-the-loop deployment model with explicit bundling validation prior to claim submission."
+      ]
+    }
+  ],
+  "references": [
+    "Jiwani A, Himmelstein D, Woolhandler S, Kahn JG. Billing and insurance-related administrative costs in United States' health care: synthesis of micro-costing evidence. BMC Health Serv Res. 2014;14:556. doi:10.1186/s12913-014-0556-7",
+    "Hou Z, Liu H, Bian J, He X, Zhuang Y. Enhancing medical coding efficiency through domain-specific fine-tuned large language models. npj Health Syst. 2025;2:14. doi:10.1038/s44401-025-00018-3",
+    "Ayub S, Scali ST, Richter J, et al. Financial implications of coding inaccuracies in patients undergoing elective endovascular abdominal aortic aneurysm repair. J Vasc Surg. 2018;69:210-218. doi:10.1016/j.jvs.2018.04.027",
+    "Bellamkonda KS, Goodney PP, Powell RJ, et al. Optimizing hospital billing by using data from the Vascular Quality Initiative. J Vasc Surg. 2025;82:2234-2241. doi:10.1016/j.jvs.2025.08.007",
+    "Koh DJ, Eslami MH, Sung E, et al. Medicare billing and utilization trends in vascular surgery. J Vasc Surg. 2024;80:1260-1268. doi:10.1016/j.jvs.2024.05.042",
+    "Seligson MT, Lyden SP, Caputo FJ, et al. Improving clinical documentation of evaluation and management care and patient acuity improves reimbursement as well as quality metrics. J Vasc Surg. 2021;74:2055-2062. doi:10.1016/j.jvs.2021.06.027",
+    "Fromer DE, Batista PM, McMackin KE, et al. A forensic analysis of spin-off and downstream revenue in an academic vascular surgery practice. J Vasc Surg. 2022;76:1072-1078.e3. doi:10.1016/j.jvs.2022.06.019",
+    "Zaidat B, Tang J, Arvind V, et al. Can a novel natural language processing model and artificial intelligence automatically generate billing codes from spine surgical operative notes? Global Spine J. 2023;14:2022-2030. doi:10.1177/21925682231164935",
+    "Borjali A, Magnéli M, Shin D, et al. Natural language processing with deep learning for medical adverse event detection from free-text medical narratives. Comput Biol Med. 2020;129:104140. doi:10.1016/j.compbiomed.2020.104140",
+    "Karhade AV, Bongers MER, Groot OQ, et al. Can natural language processing provide accurate, automated reporting of wound infection requiring reoperation after lumbar discectomy? Spine J. 2020;20:1602-1609. doi:10.1016/j.spinee.2020.02.021",
+    "Karhade AV, Bongers MER, Groot OQ, et al. Natural language processing for automated detection of incidental durotomy. Spine J. 2019;20:695-700. doi:10.1016/j.spinee.2019.12.006",
+    "Masud JHB, Kuo C-C, Yeh C-Y, Yang H-C, Lin M-C. Applying deep learning model to predict diagnosis code of medical records. Diagnostics (Basel). 2023;13:2297. doi:10.3390/diagnostics13132297",
+    "Dai H-J, Wang C-K, Chen C-C, et al. Evaluating a natural language processing-driven, AI-assisted ICD-10-CM coding system for diagnosis related groups in a real hospital environment. J Med Internet Res. 2024;26:e58278. doi:10.2196/58278",
+    "Tavabi N, Singh M, Pruneski J, Kiapour AM. Systematic evaluation of common natural language processing techniques to codify clinical notes. PLoS One. 2024;19:e0298892. doi:10.1371/journal.pone.0298892",
+    "El Moheb M, Putman K, Sears O, et al. An open-architecture AI model for CPT coding in breast surgery: development, validation, and prospective testing. Ann Surg. 2025;282:439-448. doi:10.1097/SLA.0000000000006793",
+    "Arzideh K, Schäfer H, Idrissi-Yaghir A, et al. Comparison of proprietary and fine-tuned large language models for multi-label classification of billing codes from radiology reports. Eur Radiol. 2026. doi:10.1007/s00330-026-12445-3",
+    "Madris B, Ranjbar K, Critsinelis A, et al. Evaluating AI-assisted CPT coding in vascular surgery: a comparison of ChatGPT Plus and Perplexity Pro against finance department. Ann Vasc Surg. 2025;124:28-36. doi:10.1016/j.avsg.2025.10.045",
+    "Carrarini MJ, Liu HY, Perez CK, Egro FM. Evaluating large language model's accuracy in CPT coding given operative note templates across various plastic surgery sub-specialties. J Plast Reconstr Aesthet Surg. 2025;106:50-52. doi:10.1016/j.bjps.2025.04.025",
+    "Fan L, Sivakumar S, Marin E, et al. Artificial intelligence for procedural coding in cardiac critical care: evaluating large language models for CPT accuracy. Perfusion. 2025. doi:10.1177/02676591251412271",
+    "Isch EL, Guler M, Galantini G, et al. Bridging the coding gap: assessing large language models for accurate modifier assignment in craniofacial operative notes. J Craniofac Surg. 2025;36. doi:10.1097/SCS.0000000000011390",
+    "Isch EL, Sarikonda A, Sambangi A, et al. Evaluating the efficacy of large language models in CPT coding for craniofacial surgery: a comparative analysis. J Craniofac Surg. 2024;36:831-835. doi:10.1097/SCS.0000000000010575",
+    "Isch EL, Lee J, Self DM, et al. Artificial intelligence in surgical coding: evaluating large language models for CPT accuracy in hand surgery. J Hand Surg Glob Online. 2025;7:181-185. doi:10.1016/j.jhsg.2024.11.013",
+    "Provenzano G, McCahon JAS, Nghe A, et al. Billing and coding in foot and ankle surgery: can we trust artificial intelligence? Foot Ankle Spec. 2025. doi:10.1177/19386400251363000",
+    "O'Malley GR, Sarwar SA, Cassimatis ND, et al. Can publicly available artificial intelligence successfully identify CPT codes for common procedures in neurosurgery? World Neurosurg. 2024;183:e860-e870. doi:10.1016/j.wneu.2024.01.043",
+    "Lehmann S, Wilhelmy F, von Dercks N, et al. Large language models for extraction of OPS-codes from operative reports in meningioma surgery. Acta Neurochir (Wien). 2025;167:209. doi:10.1007/s00701-025-06631-3",
+    "Kim SB, Jang I-T, Lee Y, et al. Large language models in spine surgery: a narrative review of performance paradox and clinical integration challenges. J Korean Neurosurg Soc. 2026. doi:10.3340/jkns.2026.0057",
+    "Isch EL, Monzy J, Thota B, et al. Assessing AI accuracy in generating CPT codes from surgical operative notes. J Craniofac Surg. 2025;36:1584-1587. doi:10.1097/SCS.0000000000011258",
+    "Venkatesh KP, Raza MM, Kvedar JC. Automating the overburdened clinical coding system: challenges and next steps. NPJ Digit Med. 2023;6:16. doi:10.1038/s41746-023-00768-0"
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "id": "readability-scores",
+  "title": "Quantitative Assessment of the Readability of Patient Education Material by the Society of Vascular Surgery",
+  "short_title": "Quantitative Assessment of the Readability of Patient Education Material by the Society of Vascular Surgery",
+  "authors": "Hakimi A, Othman L, Soucy JW, Chatzis KD, Zil-E-Ali A, Ali T, Aziz F",
+  "affiliations": "Division of Vascular Surgery, Penn State Milton S. Hershey Medical Center; Penn State College of Medicine, Hershey, PA",
+  "stage": "Published · Ann Vasc Surg 2026;130:229-237",
+  "drive": {
+    "manuscript_doc_id": "1Q2CxRx4uCcR-bC947DFefGf17TlPAlgD",
+    "manuscript_folder_id": "1GmDEZJeFQqmstQbEKJCVHN2gygpvoEa_",
+    "figures_folder_id": "1GmDEZJeFQqmstQbEKJCVHN2gygpvoEa_",
+    "project_folder_id": "10bbiQ3J-iIt3uN19dlACSRGnv8jjlfUO",
+    "results_run_id": "",
+    "manuscript_modified": "2026-03-08"
+  },
+  "synced": "2026-06-16",
+  "links": {
+    "manuscript": "https://drive.google.com/file/d/1_ZtgM1KlgQhlXomcRl1sOWyxab5ayD1C/view",
+    "published": "https://doi.org/10.1016/j.avsg.2026.04.043",
+    "code": ""
+  },
+  "abstract": {
+    "Objectives": "Health literacy is a key determinant of patient outcomes. Patient education materials (PEMs) are intended to improve health literacy. The NIH and AMA recommend that PEMs be written at or below an eighth-grade and sixth-grade reading level, respectively. Despite these recommendations, repeated studies demonstrate that most PEMs are written at significantly higher reading levels, limiting their effectiveness. The purpose of this study was to evaluate the readability of publicly available PEMs from the Society for Vascular Surgery (SVS).",
+    "Methods": "Fifteen SVS PEMs were identified and downloaded from the SVS website and converted to plain text. Their readability was assessed using 6 validated indices: Flesch-Kincaid Grade Level, Flesch Reading Ease (FRE), Gunning-Fog Index, Coleman-Liau Index, Automated Readability Index, and Simple Measure of Gobbledygook (SMOG). Descriptive statistics, ANOVA, Kruskal-Wallis, and Cohen's d were used to compare results against NIH/AMA benchmarks and assess differences across indices.",
+    "Results": "All 15 SVS PEMs were written above the recommended sixth-grade reading level (P<0.01), and 12 exceeded the eighth-grade reading level (P<0.05). Despite significant variation between metrics, all indices produced consistent grade-level estimates and showed average readability above sixth grade. The mean readability grade levels across the 6 indices ranged from 8.63 to 14.56, with cerebrovascular disease, arterial dissection, and deep venous thrombosis being the most difficult to understand. There were statistically significant variations between metrics (ANOVA P<0.0001; Kruskal-Wallis P<0.0001), with an Eta-squared analysis suggesting 30.6% of the variance in readability scores was attributable to the choice of readability calculator. FRE scores categorized 73% of PEMs as 'fairly difficult' or 'very difficult.' The SMOG index produced the lowest grade levels while the Coleman-Liau index produced the highest (difference = 3.33 grade levels).",
+    "Conclusions": "PEMs from the SVS consistently exceed the readability thresholds recommended by the NIH and AMA, mirroring trends in other specialties. Poorly designed PEMs can exacerbate disparities in health literacy and worsen outcomes in an already sick population. These results underscore the need for the SVS to improve patient handouts to better align with national readability standards."
+  },
+  "takeaways": [
+    "First dedicated audit of the Society for Vascular Surgery's patient education materials: all 15 SVS PEMs exceeded the AMA-recommended 6th-grade reading level (p<0.01), and 12 of 15 also exceeded the NIH 8th-grade level (p<0.05).",
+    "Mean grade levels per handout ranged from 8.63 (Thoracic Outlet Syndrome — the most readable) to 14.56 (Cerebrovascular Disease); the hardest five were cerebrovascular disease, arterial dissection, deep vein thrombosis, chronic kidney disease/dialysis, and aortic dissection.",
+    "The choice of readability calculator mattered: ANOVA p<0.0001 and Kruskal-Wallis p<0.0001 across indices, with Eta-squared (η²=0.306) attributing 30.6% of score variance to which calculator was used.",
+    "SMOG produced the lowest mean grade level (9.69) and Coleman-Liau the highest (13.02) — a 3.33 grade-level spread — yet all five grade-level indices agreed every PEM was above threshold (inter-index Pearson r 0.70–0.95).",
+    "Flesch Reading Ease scores ranged 25–64 across the 15 PEMs, and 73% were categorized as 'Fairly Difficult' or 'Very Difficult.'",
+    "SVS PEMs sit in the same range as audits of AHA (mean FKGL 10.22), ACC (9.86), and ESVS (mean grade 10.61) materials — a society-wide problem; the authors call for a dedicated SVS subcommittee to revise PEMs to health-literacy standards."
+  ],
+  "figures": [
+    {
+      "type": "image",
+      "key": "f1",
+      "num": "Figure 1",
+      "title": "Readability grade-level heatmap by handout and calculator",
+      "caption": "Figure 1: Readability grade level heatmap for FKGL, SMOG, Gunning-Fog, Coleman-Liau, and Adjusted Readability Index calculators for 15 available Society for Vascular Surgery patient education handouts. The five most difficult handouts, Cerebrovascular Disease, Arterial Dissection, Deep Vein Thrombosis, Chronic Kidney Disease and Dialysis, and Aortic Dissection, consistently score the highest across all metrics.",
+      "src": "research-assets/figures/readability-scores/fig1.png"
+    },
+    {
+      "type": "image",
+      "key": "f2",
+      "num": "Figure 2",
+      "title": "Distribution of grade levels across readability calculators",
+      "caption": "Figure 2: Boxplot distribution of average grade levels for all PEM's per readability index, highlighting systematic differences in estimated grade levels. ANOVA and Kruskal-Wallis p ≤ 0.0001.",
+      "src": "research-assets/figures/readability-scores/fig2.png"
+    },
+    {
+      "type": "image",
+      "key": "f3",
+      "num": "Figure 3",
+      "title": "CKD handout: original versus revised at a 6th-grade level",
+      "caption": "Figure 3: Chronic Kidney Disease original document versus example revised version written at a 6th grade level, utilizing simpler language, sentence structure, and fewer polysyllabic words.",
+      "src": "research-assets/figures/readability-scores/fig3.png"
+    },
+    {
+      "type": "image",
+      "key": "sf1",
+      "num": "Supplementary Figure 1",
+      "title": "Grade-level estimates per handout across five metrics",
+      "caption": "Supplementary Figure 1: Grade-level estimates for each SVS handout across five readability metrics.",
+      "src": "research-assets/figures/readability-scores/supp1.png"
+    },
+    {
+      "type": "image",
+      "key": "sf2",
+      "num": "Supplementary Figure 2",
+      "title": "Correlation between readability calculators",
+      "caption": "Supplementary Figure 2: Correlation heatmap between readability metrics, demonstrating strong agreement among indices, with pairwise Pearson coefficients ranging from 0.70 to 0.95.",
+      "src": "research-assets/figures/readability-scores/supp2.png"
+    },
+    {
+      "type": "image",
+      "key": "sf3",
+      "num": "Supplementary Figure 3",
+      "title": "Flesch Reading Ease score by handout",
+      "caption": "Supplementary Figure 3: The Flesch Reading Ease (FRE) Score provides an inverse relationship calculation to demonstrate difficulty of reading. Lower scores suggest difficult to read, higher scores suggest easier to read. Most SVS handouts fall under the Difficult or Fairly Difficult categories.",
+      "src": "research-assets/figures/readability-scores/supp3.png"
+    }
+  ],
+  "tables": [
+    {
+      "key": "t1",
+      "label": "Table 1 (Supplementary Table 1)",
+      "caption": "Readability statistics of the 15 SVS patient education handouts — mean grade level (across the grade-level indices) with 95% CI, one-sample t-test p-values, and Cohen's d versus the 6th- and 8th-grade benchmarks. Sorted by mean grade ascending.",
+      "columns": [
+        "SVS PEM",
+        "Mean grade (SD)",
+        "95% CI",
+        "vs 6th grade p",
+        "Cohen's d (6th)",
+        "vs 8th grade p",
+        "Cohen's d (8th)"
+      ],
+      "rows": [
+        [
+          "Thoracic Outlet Syndrome",
+          "8.63 (0.92)",
+          "7.49 – 9.77",
+          "0.003",
+          "2.87",
+          "0.197*",
+          "0.69"
+        ],
+        [
+          "Acute Limb Ischemia",
+          "9.61 (1.23)",
+          "8.08 – 11.14",
+          "0.003",
+          "2.93",
+          "0.043",
+          "1.31"
+        ],
+        [
+          "Abdominal Aortic Aneurysm",
+          "9.88 (1.1)",
+          "8.51 – 11.25",
+          "0.001",
+          "3.51",
+          "0.019",
+          "1.70"
+        ],
+        [
+          "Varicose and Spider Veins",
+          "9.96 (1.66)",
+          "7.9 – 12.03",
+          "0.006",
+          "2.38",
+          "0.058*",
+          "1.18"
+        ],
+        [
+          "Carotid Artery Disease",
+          "9.99 (1.79)",
+          "7.76 – 12.22",
+          "0.008",
+          "2.22",
+          "0.068*",
+          "1.11"
+        ],
+        [
+          "Peripheral Artery Disease",
+          "10.24 (1.49)",
+          "8.39 – 12.09",
+          "0.003",
+          "2.85",
+          "0.028",
+          "1.50"
+        ],
+        [
+          "Pelvic Congestion Syndrome",
+          "10.42 (1.82)",
+          "8.16 – 12.67",
+          "0.006",
+          "2.43",
+          "0.041",
+          "1.33"
+        ],
+        [
+          "Chronic Venous Insufficiency",
+          "10.54 (2.04)",
+          "8.0 – 13.07",
+          "0.008",
+          "2.22",
+          "0.050",
+          "1.24"
+        ],
+        [
+          "May-Thurner Syndrome",
+          "10.92 (1.16)",
+          "9.48 – 12.36",
+          "<0.001",
+          "4.23",
+          "0.005",
+          "2.51"
+        ],
+        [
+          "Renal and Mesenteric Artery Occlusive Disease",
+          "11.06 (1.13)",
+          "9.65 – 12.46",
+          "<0.001",
+          "4.47",
+          "0.004",
+          "2.70"
+        ],
+        [
+          "Aortic Dissection",
+          "12.66 (1.66)",
+          "10.59 – 14.73",
+          "<0.001",
+          "4.00",
+          "0.003",
+          "2.80"
+        ],
+        [
+          "Chronic Kidney Disease and Dialysis",
+          "12.81 (1.3)",
+          "11.2 – 14.42",
+          "<0.001",
+          "5.25",
+          "0.001",
+          "3.70"
+        ],
+        [
+          "Deep Vein Thrombosis",
+          "13.43 (0.83)",
+          "12.41 – 14.46",
+          "<0.001",
+          "9.00",
+          "<0.001",
+          "6.58"
+        ],
+        [
+          "Arterial Dissection",
+          "14.0 (1.76)",
+          "11.82 – 16.19",
+          "<0.001",
+          "4.55",
+          "0.002",
+          "3.41"
+        ],
+        [
+          "Cerebrovascular Disease",
+          "14.56 (1.87)",
+          "12.24 – 16.87",
+          "<0.001",
+          "4.58",
+          "0.001",
+          "3.51"
+        ]
+      ],
+      "note": "SD = standard deviation; CI = confidence interval. *p>.05 (not significant) when compared to the respective grade level (one-sample t-test) — only Thoracic Outlet Syndrome, Varicose and Spider Veins, and Carotid Artery Disease failed to reach significance vs the 8th-grade benchmark; all remained above the 6th-grade threshold."
+    },
+    {
+      "key": "t2",
+      "label": "Table 2",
+      "caption": "Mean readability across all 15 SVS PEMs by index. Five grade-level indices plus the Flesch Reading Ease (FRE) 0–100 ease score (shown separately; higher = easier).",
+      "columns": [
+        "Index",
+        "Type",
+        "Mean across 15 PEMs"
+      ],
+      "rows": [
+        [
+          "SMOG",
+          "Grade level",
+          "9.69"
+        ],
+        [
+          "Flesch-Kincaid Grade Level (FKGL)",
+          "Grade level",
+          "10.35"
+        ],
+        [
+          "Automated Readability Index (ARI)",
+          "Grade level",
+          "10.99"
+        ],
+        [
+          "Gunning-Fog Index (GFI)",
+          "Grade level",
+          "12.19"
+        ],
+        [
+          "Coleman-Liau Index (CLI)",
+          "Grade level",
+          "13.02"
+        ],
+        [
+          "Flesch Reading Ease (FRE)",
+          "Ease score (0–100)",
+          "45.3"
+        ]
+      ],
+      "note": "Computed from the per-PEM, per-index data (Readability Data.xlsx). SMOG lowest and Coleman-Liau highest among grade-level indices (difference = 3.33). ANOVA p<0.0001; Kruskal-Wallis p<0.0001; Eta-squared η²=0.306 (30.6% of variance attributable to calculator choice). Inter-index Pearson correlations ranged 0.70–0.95."
+    },
+    {
+      "key": "t3",
+      "label": "Table 3",
+      "caption": "Definitions of the six readability indices used to assess SVS patient education materials.",
+      "columns": [
+        "Index",
+        "Formula",
+        "Output / score",
+        "Traditional use"
+      ],
+      "rows": [
+        [
+          "Flesch-Kincaid Grade Level (FKGL)",
+          "0.39 × (words/sentence) + 11.8 × (syllables/word) − 15.59",
+          "US grade level; no upper bound. Benchmarks ≤6th (AMA), ≤8th (NIH)",
+          "Health literacy research; government documents; PEM assessment"
+        ],
+        [
+          "Flesch Reading Ease (FRE)",
+          "206.835 − 1.015 × (words/sentence) − 84.6 × (syllables/word)",
+          "0–100, inverse of difficulty. ≥80 easy (~6th); 50–59 fairly difficult (~10th–12th); <50 very difficult (college)",
+          "Journalism, military, consumer health; inverse complement to FKGL"
+        ],
+        [
+          "Simple Measure of Gobbledygook (SMOG)",
+          "3 + √(polysyllabic words per 30 sentences)",
+          "US grade level for full (100%) comprehension",
+          "Endorsed by the National Cancer Institute; patient education and public health"
+        ],
+        [
+          "Gunning-Fog Index (GFI)",
+          "0.4 × [(words/sentence) + 100 × (complex words/words)]",
+          "US grade level; >17 considered unreadable by most audiences",
+          "Business and journalism; health communication research"
+        ],
+        [
+          "Coleman-Liau Index (CLI)",
+          "0.0588 × (letters/100 words) − 0.296 × (sentences/100 words) − 15.8",
+          "US grade level; uses character count rather than syllables",
+          "Educational and health literacy research; automated text analysis"
+        ],
+        [
+          "Automated Readability Index (ARI)",
+          "4.71 × (characters/words) + 0.5 × (words/sentence) − 21.43",
+          "US grade level mapped to an age/grade range",
+          "Developed for US Air Force technical writing; broad health literacy use"
+        ]
+      ],
+      "note": "Complex words (GFI): ≥3 syllables, excluding proper nouns and common suffixes. All scores were calculated using the free ReadabilityFormulas.com tool for consistency. Corresponds to Table 1 of the published manuscript."
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "paras": [
+        "Access to clear and understandable health information is essential for patients to make informed decisions about their care. However, the complexity of medical information often prohibits many patients from fully comprehending their diagnoses, risk factors, the importance of routine screening, and treatment options. Health literacy, which includes a person's ability to seek, comprehend, and apply health information, has been shown to be a modifiable risk factor and mediator of socioeconomic status in health disparities as well as one of the strongest predictors of health outcomes[1-3]. To help address the challenges with health literacy, Patient Education Material (PEM) including websites, handouts, and pamphlets are designed to simplify complex medical concepts. However, many PEMs are non-standardized and as a result often written at a complexity level that exceeds the health literacy of most patients. The average reading level of patients in the United States is around the 8th grade[4, 5], which is why organizations including the National Institutes of Health (NIH) and the American Medical Association (AMA) recommend PEMs be written at a 6th-grade level[6].",
+        "Patients suffering from vascular disease represent a challenging situation, as a majority are older, have several coexisting comorbidities, and face complex decision-making trees for management of their multifaceted disease processes. Review of the literature[7-13] shows that most patients struggle to understand many of the online educational materials for vascular diseases. Therefore, the Society for Vascular Surgery (SVS) has taken the responsibility of producing PEMs for vascular surgery patients that are written in an easily understandable language. These materials are freely and readily accessible to the public on the SVS website[14]. The ease of understanding of SVS PEMs has not been assessed objectively. Review of the literature analyzing PEMs published across different medical and surgical specialties shows that in general, PEMs exceed the recommended reading level[15-17]. A review by Rooney et al. in 2021 evaluated the readability of 2585 PEMs published in high-impact medical journals and found only 2.1% of materials met the recommended 6th-grade reading level[18]. More recently, Okuhara et al. performed a systematic review including over 29,424 PEMs across 438 studies and report that despite continued research, readability levels have not improved over the last 20+ years[19].",
+        "Given the essential role of health literacy in patient outcomes, it is imperative to evaluate and improve the readability of PEMs. As the leader in the management of vascular conditions, the SVS provides PEMs on all major vascular disorders. While individual SVS PEMs may be incidentally encapsulated in other studies, to our knowledge there has yet to be any collective reviews specifically assessing the quality of the educational materials distributed by our society. This study aims to fill this void by utilizing validated readability indices to assess the readability of the 15 different PEMs provided by the SVS."
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods",
+      "paras": [
+        "A total of 15 patient education pamphlets were downloaded from the Society for Vascular Surgery (SVS) public health flyers website in April 2025[14]. These documents represent the complete set of patient education materials provided by the SVS and cover the full spectrum of vascular conditions, including abdominal aortic aneurysm, carotid artery disease, deep vein thrombosis, peripheral artery disease, varicose and spider veins, acute limb ischemia, aortic dissection, arterial dissection, cerebrovascular disease, chronic kidney disease and dialysis, chronic venous insufficiency, May-Thurner syndrome, pelvic congestion syndrome, renal and mesenteric artery occlusive disease, and thoracic outlet syndrome.",
+        "Each document was converted to a plain text Microsoft Word document. Following the approach of Kue et al.[20], any institutional or brand-specific logos and headers were removed from the text while preserving all medically relevant content, symbols, and punctuation. The cleaned text from each brochure was then scored using six different readability assessments. These indices are established standards in health literacy research, and each yields an estimate of the education level needed to understand the material[20]. Readability scores were calculated using the free online tool available at ReadabilityFormulas.com, which allowed for consistent calculation of each index[2, 20]. The six readability calculators are defined in Table 1 and included: Flesch-Kincaid Grade Level (FKGL), Flesch Reading Ease (FRE), Simple Measure of Gobbledygook (SMOG), Gunning-Fog Index (GFI), Coleman-Liau Index (CLI), and Automated Readability Index (ARI).",
+        "For each educational document, readability scores from all six indices were recorded and compared to established benchmarks recommended by the AMA and the NIH, which suggest that patient education materials should be written at or below a 6th-grade or 8th-grade reading level respectively[6]. While Kue et al.[20] primarily utilized three indices and focused on a 6th-grade cutoff, we expanded our approach to incorporate three additional measures (GFI, CLI, and ARI). Using multiple established readability formulas helped ensure greater reliability, as each formula calculates readability using different parameters: sentence length, syllable counts, polysyllabic words, complex word percentages, or character-to-word ratios.",
+        "Statistical analysis was performed including descriptive statistics with mean grade level per handout, standard deviation, and 95% confidence interval, with p values less than .05 considered significant when comparing against 6th- and 8th-grade readability levels, as well as a Cohen's d value to assess differences in mean. We also performed an analysis of variance (ANOVA) as well as Kruskal-Wallis for nonparametric testing, similar to the previous work of Avra et al.[9]. Given the quality improvement and retrospective design of our study without human subjects, institutional review board approval was not required."
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "paras": [
+        "The mean readability grade levels across the 15 SVS educational documents exceeded the 6th-grade threshold (p<0.01), and 12 of 15 exceeded the 8th-grade threshold (p<0.05), as summarized in Table 1. Mean scores ranged from 8.63 (Thoracic Outlet Syndrome) to 14.56 (Cerebrovascular Disease). Three documents — Thoracic Outlet Syndrome, Varicose and Spider Veins, and Carotid Artery Disease — did not reach statistical significance relative to the 8th-grade benchmark, though all three remained above the 6th-grade threshold.",
+        "The grade-level estimates varied across the five different grade-level indices and are illustrated in the readability heatmap (Figure 1). The TOS handout consistently scored the lowest across all indices (FKGL = 7.72; SMOG = 8.06). The five most difficult handouts across all metrics were Cerebrovascular Disease (mean 14.56), Arterial Dissection (14.0), Deep Vein Thrombosis (13.43), Chronic Kidney Disease and Dialysis (12.81), and Aortic Dissection (12.66).",
+        "Figure 2 illustrates that statistically significant variations were observed between readability calculators (ANOVA p<0.0001; Kruskal-Wallis p<0.0001). The Coleman-Liau Index produced the highest mean scores (13.02), while SMOG consistently yielded lower mean estimates (9.69). Eta-squared analysis (η² = 0.306) suggested that 30.6% of variance in readability scores was attributable to the choice of which calculator was used. Despite this variability, all five indices converged in classifying every PEM as above the recommended thresholds. Detailed grade-level estimates for each individual document across all five indices are presented in Supplementary Figure 1, while Pearson correlation coefficients showing strong inter-index agreement ranging from 0.70 to 0.95 are shown in Supplementary Figure 2.",
+        "Flesch Reading Ease (FRE) scores, which provide an inverse measure of reading difficulty on a 0-100 scale, ranged from 25-64 across the 15 PEMs (Supplementary Figure 3). Of the 15 documents, 73% were categorized as 'Fairly Difficult' or 'Very Difficult.' No consistent association was observed between document length and reading difficulty."
+      ]
+    },
+    {
+      "id": "discussion",
+      "title": "Discussion",
+      "paras": [
+        "In general, patients with vascular diseases are often medically complex and face a high disease burden by the time they present for management, and there is a crucial role for better understanding the disease process, the importance of lifestyle modifications, and conservative management in the initial stages of most vascular disease processes[21, 22]. These challenges are compounded by the fact that vascular conditions disproportionately affect older adults, many of whom may experience cognitive decline, visual impairment, or limited health literacy[23, 24]. Our findings build upon existing literature that has consistently shown patient education materials from vascular surgery and across other specialties exceed recommended readability levels. Scott et al.[8] analyzed content on abdominal aortic aneurysm operations from the top 10 websites on Google and Bing and found the average reading grade level for all sites was 12.8, with none written at or below the recommended sixth-grade level. Likewise, qualitative analysis by Bailey et al.[7] of abdominal aortic aneurysm content on Google, Yahoo!, and Bing yielded poor readability scores on all websites. Similarly, online searches on Google for peripheral arterial disease by Avra et al.[9] identified 25 patient-accessible articles whose average readability was higher than the recommended sixth-grade level. All the published evidence clearly shows that available online educational resources for patients with vascular diagnoses are not written at the recommended sixth-grade level.",
+        "In addition, our findings are consistent with those reported for PEMs from other major medical societies. Published readability audits of the American Heart Association (AHA) online patient materials report a mean Flesch-Kincaid Grade Level of 10.22 ± 1.19, while the American College of Cardiology (ACC) materials average a mean FKGL of 9.86 ± 1.42[25, 26]. Similarly, patient-facing content from the European Society for Vascular Surgery (ESVS) has been reported at a mean reading grade level of 10.61 (range 6.4-14.5)[27]. Our SVS materials fall within a similar range, underscoring that the challenge of producing accessible PEMs is a society-wide problem not unique to vascular surgery.",
+        "To the best of the authors' knowledge, this is the first focused analysis of the Society for Vascular Surgery's Patient Education Materials. As one of the premier leaders for vascular care across the world, content produced by the SVS is often considered 'gold standard' and therefore has potential for significant impact in patient care. All 15 PEMs assessed exceeded the 6th-grade reading level, and we identified five materials with the highest average reading grade level: cerebrovascular disease (14.55), arterial dissection (14.08), deep vein thrombosis (13.44), chronic kidney disease and dialysis (12.92), and aortic dissection (12.8). The lowest calculated grade was for thoracic outlet syndrome (8.61), which, despite being the most readable, still surpassed the recommended level.",
+        "The discussion of complex vascular conditions often requires the inclusion of urgent, life-threatening scenarios, interrelated organ systems, or specialized terminology that is difficult to avoid without sacrificing accuracy. For example, the PEM addressing chronic kidney disease and dialysis must encompass metabolic derangements, vascular access, renal function, and dialysis modalities. Although balancing medical accuracy with readability has been shown to be challenging, changes to shorter sentence structure, simpler language, and fewer polysyllabic words can lead to significant improvements in readability scores. In Figure 3, we illustrate how such changes in two sections of the CKD handout can lead to more appropriate levels, with an average grade level of 6.44. However, the simplification of medical texts, although possible, can lead patients to overestimate their understanding of the material[28]; as such, an emphasis must also be placed on assessing patient understanding.",
+        "This analysis is not without limitations. It was restricted to the 15 PEMs available on the SVS website at the time of data collection. Although limiting our analysis to a single source reduced variability in authorship and formatting, it inherently constrained the generalizability of our findings. Another limitation is that readability indices cannot assess non-textual components such as figures or diagrams, which may significantly enhance comprehension[30]. Additionally, our study focused solely on readability, not comprehension. Without patient-centered testing, we cannot draw firm conclusions about how effectively these materials communicate information. Further investigation should incorporate patient-centered assessments, such as interviews, focus groups, or validated tools like the Patient Education Materials Assessment Tool (PEMAT). We suggest the formation of a dedicated subcommittee within the SVS to standardize, evaluate, and revise PEMs in accordance with health literacy guidelines[31]."
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion",
+      "paras": [
+        "Poorly designed patient education materials can create significant barriers to understanding, especially among patients with complex vascular disease. This study evaluated the readability of 15 PEMs from the SVS and found that all exceeded the recommended health literacy standards. Identifying gaps between current readability levels and national recommendations can guide improvements in patient education material development. Our findings underscore the need for increased attention to improving health literacy in vascular education materials. Future studies should focus on revising PEMs using plain language strategies and the impact of appropriately written educational materials on parameters such as patient satisfaction, adherence, and clinical outcomes."
+      ]
+    }
+  ],
+  "references": [
+    "Stormacq C, Van Den Broucke S, Wosinski J. Does health literacy mediate the relationship between socioeconomic status and health disparities? Integrative review. Health Promot Int. 2019;34(5):e1-e17.",
+    "Badarudeen S, Sabharwal S. Assessing readability of patient education materials: current role in orthopaedics. Clin Orthop Relat Res. 2010;468(10):2572-80.",
+    "Berkman ND, Sheridan SL, Donahue KE, Halpern DJ, Crotty K. Low health literacy and health outcomes: an updated systematic review. Ann Intern Med. 2011;155(2):97-107.",
+    "Eltorai AEM, Sharma P, Wang J, Daniels AH. Most American Academy of Orthopaedic Surgeons' online patient education material exceeds average patient reading level. Clin Orthop Relat Res. 2015;473(4):1181-6.",
+    "Stossel LM, Segar N, Gliatto P, Fallar R, Karani R. Readability of patient education materials available at the point of care. J Gen Intern Med. 2012;27(9):1165-70.",
+    "Weiss BD, Doak LG, Doak CC. Health literacy: a manual for clinicians: part of an educational program about health literacy. Chicago: AMA Foundation, American Medical Association; 2003.",
+    "Bailey MA, Coughlin PA, Sohrabi S, Griffin KJ, Rashid ST, Troxler MA, et al. Quality and readability of online patient information for abdominal aortic aneurysms. J Vasc Surg. 2012;56(1):21-6.",
+    "Scott BB, Johnson AR, Doval AF, Tran BN, Lee BT. Readability and understandability analysis of online materials related to abdominal aortic aneurysm repair. Vasc Endovascular Surg. 2020;54(2):111-7.",
+    "Avra TD, Le M, Hernandez S, Thure K, Ulloa JG. Readability assessment of online peripheral artery disease education materials. J Vasc Surg. 2022;76(6):1728-32.",
+    "Clothier W, Treffalls JA, Tolbert PH, Harbin Z, Yan Q, Davies MG. Quality assessment of online resources for thoracic outlet syndrome patients. Ann Vasc Surg. 2022;85:96-104.",
+    "Tolbert PH, Treffalls J, Clothier W, Harbin Z, Yan Q, Davies MG. Qualitative assessment of available online patient resources for pulmonary embolism and deep vein thrombosis. Phlebology. 2023;38(8):503-15.",
+    "Strauss S, Yacob M, Bhandari A, Jetty P. Carotid endarterectomy versus carotid artery stenting: survey of the quality, readability, and treatment preference of carotid artery disease websites. Interact J Med Res. 2020;9(4):e23519.",
+    "Liao J, Wu Z, Zhao J. A readability analysis of patient education materials about chronic venous disease provided by professional vascular societies. Phlebology. 2023;38(8):556-60.",
+    "Society for Vascular Surgery. Vascular health flyers. Available from: https://vascular.org/referring-physicians/conditions/vascular-health-flyers.",
+    "Rustomji Y, Nweke UC, Hassan S, Ahmad U, Jolly M. Not so patient friendly: patient education materials in rheumatology and internal medicine fall short of nationally recommended readability benchmarks in the United States. Arthritis Care Res (Hoboken). 2025;77(5):676-84.",
+    "Samuel D, Vilardo N, Isani SS, Kuo DYS, Gressel GM. Readability assessment of online gynecologic oncology patient education materials from major governmental, non-profit and pharmaceutical organizations. Gynecol Oncol. 2019;154(3):616-21.",
+    "Fahimuddin FZ, Sidhu S, Agrawal A. Reading level of online patient education materials from major obstetrics and gynecology societies. Obstet Gynecol. 2019;133(5):987-93.",
+    "Rooney MK, Santiago G, Perni S, Horowitz DP, McCall AR, Einstein AJ, et al. Readability of patient education materials from high-impact medical journals: a 20-year analysis. J Patient Exp. 2021;8:2374373521998847.",
+    "Okuhara T, Furukawa E, Okada H, Yokota R, Kiuchi T. Readability of written information for patients across 30 years: a systematic review of systematic reviews. Patient Educ Couns. 2025;135:108656.",
+    "Kue J, Klemanski DL, Browning KK. Evaluating readability scores of treatment summaries and cancer survivorship care plans. JCO Oncol Pract. 2021;17(10):615-21.",
+    "Moridzadeh RS, Sanaiha Y, Madrigal J, Antonios J, Benharash P, Baril DT. Nationwide comparison of the medical complexity of patients by surgical specialty. J Vasc Surg. 2021;73(2):683-8.e2.",
+    "Ramirez JL, Wang K, Sung E, Hernandez S, Le M, Avra TD, et al. Readability of Spanish-language online patient educational materials for peripheral artery disease do not meet recommended standards and represent a literacy barrier to care. Ann Vasc Surg. 2024;101:157-63.",
+    "Savji N, Rockman CB, Skolnick AH, Guo Y, Adelman MA, Riles T, et al. Association between advanced age and vascular disease in different arterial territories. J Am Coll Cardiol. 2013;61(16):1736-43.",
+    "Strijbos RM, Hinnen J-W, Van Den Haak RFF, Verhoeven BAN, Koning OHJ. Inadequate health literacy in patients with arterial vascular disease. Eur J Vasc Endovasc Surg. 2018;56(2):239-45.",
+    "Wasir AS, Volgman AS, Jolly M. Assessing readability and comprehension of web-based patient education materials by American Heart Association (AHA) and CardioSmart online platform by American College of Cardiology (ACC): how useful are these websites for patient understanding? Am Heart J Plus. 2023;32:100308.",
+    "Kapoor K, George P, Evans MC, Miller WJ, Liu SS. Health literacy: readability of ACC/AHA online patient education material. Cardiology. 2017;138(1):36-40.",
+    "San Norberto EM, García-Rivera E, Revilla Á, Taylor JH, Vaquero C. Readability of patient educational materials in venous thrombosis: analysis of the 2021 ESVS guidelines and comparison with other medical societies information. Int Angiol. 2022;41(2):149-57.",
+    "Ivchenko O, Grabar N. Impact of the text simplification on understanding. IOS Press; 2022.",
+    "Phair J, Dalmia V, Sanon O, Leinbach C, Rai A, Lipsitz E, et al. The current state of vascular surgery presence and educational content in Google and YouTube internet search results. J Vasc Surg. 2021;74(2):616-24.e6.",
+    "Jawed S, Amin HU, Malik AS, Faye I. Classification of visual and non-visual learners using electroencephalographic alpha and gamma activities. Front Behav Neurosci. 2019;13:86.",
+    "Josfeld L, Huebner J. Development and analysis of quality assessment tools for different types of patient information — websites, decision aids, question prompt lists, and videos. BMC Med Inform Decis Mak. 2023;23(1):4."
+  ]
+}

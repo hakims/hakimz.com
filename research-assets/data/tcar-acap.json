@@ -1,0 +1,638 @@
+{
+  "id": "tcar-acap",
+  "title": "Optimizing TCAR Antithrombotic Regimens for Patients on Chronic Anticoagulation",
+  "short_title": "Optimizing TCAR Antithrombotic Regimens for Patients on Chronic Anticoagulation",
+  "authors": "Hakimi A, Ali T, Rawat S, Dogbe L, Schweitzer C, Zil-E-Ali A, Aziz F",
+  "affiliations": "Division of Vascular Surgery, Penn State Milton S. Hershey Medical Center; Penn State College of Medicine, Hershey, PA",
+  "stage": "Published · Ann Vasc Surg 2026;128:181-192",
+  "drive": {
+    "manuscript_doc_id": "1s0dSHe7yuzx6cYR8WBYRrI_CFsANGF-E",
+    "manuscript_folder_id": "1QvVZxWyOWZNNBRf9x73vsZj5oT2vcV0h",
+    "figures_folder_id": "1QvVZxWyOWZNNBRf9x73vsZj5oT2vcV0h",
+    "project_folder_id": "1pMnDglPt17QPLKXGAW1NHkWJGR1BBlL2",
+    "results_run_id": "",
+    "manuscript_modified": "2026-03-16T19:00:53.769Z"
+  },
+  "synced": "2026-06-16",
+  "links": {
+    "manuscript": "https://drive.google.com/file/d/1s0dSHe7yuzx6cYR8WBYRrI_CFsANGF-E/view",
+    "published": "https://doi.org/10.1016/j.avsg.2026.02.025",
+    "code": ""
+  },
+  "abstract": {
+    "Objectives": "While dual antiplatelet therapy (DAPT) remains the standard for transcarotid artery revascularization (TCAR), many patients require anticoagulation for medical comorbidities. We evaluated the safety and efficacy of different antithrombotic regimens in TCAR patients.",
+    "Methods": "This retrospective cohort study used the Society for Vascular Surgery Vascular Quality Initiative TCAR Surveillance Project database (2016-2024). Among 75,444 patients, we compared four groups: dual antiplatelet therapy (DAPT, n=62,847, 83.3%), single antiplatelet plus anticoagulation (SAPT+AC, n=5,102, 6.8%), triple therapy (TT, n=6,104, 8.1%), and anticoagulation alone (AC, n=1,391, 1.8%). Primary outcomes included 30-day mortality, neurologic events, and composite death/stroke. Multivariate logistic regression controlled for confounders. Secondary outcomes included perioperative bleeding, myocardial infarction, and dysrhythmia.",
+    "Results": "Overall 30-day mortality was 0.4%, and the incidence of neurologic events was 1.39%. DAPT demonstrated superior outcomes with lowest 30-day mortality (0.34%), neurologic events (1.30%), and composite death/stroke (1.59%). After adjustment, SAPT+AC had significantly higher odds of neurologic events (AOR 1.52, P=0.001) and composite death/stroke (AOR 1.58, P<0.001) versus DAPT. AC alone showed the highest risk for neurologic events (AOR 2.15, P<0.001) and composite death/stroke (AOR 2.58, P<0.001). TT outcomes were comparable to DAPT. Perioperative bleeding rates (access site, retroperitoneal, or intracranial) increased progressively: DAPT (1.6%), SAPT+AC (2.0%), TT (2.5%), and AC alone (2.7%). Within SAPT+AC, P2Y12 inhibitors had lower intracranial bleeding than aspirin (0.37% vs. 1.12%, P=0.005).",
+    "Conclusions": "DAPT remains optimal for TCAR. For patients requiring AC, TT appears preferable to SAPT+AC but does carry increased bleeding risk. When SAPT+AC is necessary, P2Y12 inhibitors may have decreased bleeding risk versus aspirin."
+  },
+  "takeaways": [
+    "In 75,444 VQI TCAR patients (2016-2024), DAPT remained the safest regimen with the lowest 30-day mortality (0.34%), neurologic events (1.29%), and composite death/stroke (1.59%).",
+    "Triple therapy (DAPT + anticoagulation) achieved outcomes statistically comparable to DAPT after adjustment (neurologic AOR 0.92, composite AOR 0.96; both NS), challenging the view that all non-DAPT regimens are inferior.",
+    "SAPT+AC carried significantly higher adjusted odds of neurologic events (AOR 1.52, p<0.001) and composite death/stroke (AOR 1.58, p<0.001), plus the highest 30-day mortality (AOR 1.60, p=0.015) versus DAPT.",
+    "Anticoagulation alone was the worst regimen for ischemic events: highest neurologic event rate (AOR 2.15, p<0.001) and composite death/stroke (AOR 2.58, p<0.001).",
+    "Perioperative bleeding rose stepwise with antithrombotic intensity: DAPT 1.6% to SAPT+AC 2.0% to TT 2.5% to AC alone 2.7%.",
+    "Within SAPT+AC, P2Y12 inhibitors beat aspirin on bleeding, most notably intracranial (0.37% vs 1.12%, p=0.005), supporting a P2Y12-based regimen when SAPT+AC is required."
+  ],
+  "figures": [
+    {
+      "type": "image",
+      "key": "f1",
+      "num": "Figure 1",
+      "title": "Incidence of primary outcomes by group",
+      "caption": "Incidence of Primary Outcomes (30-day mortality, any neurologic event i.e., TIA or Stroke, and composite event of death or stroke) based on the study groups. All outcomes were found statistically significant (p<0.05). Groups: Group I (DAPT, n=62,847), Group II (ASA or P2Y12 inhibitors + AC, n=5,102), Group III (Triple Therapy, n=6,104), Group IV (AC Only, n=1,391). 30-day mortality: 0.34%, 0.90%, 0.51%, 0.50%. Any neurologic event: 1.29%, 2.20%, 1.31%, 3.38%. Composite death or stroke: 1.59%, 3.00%, 1.80%, 3.88%.",
+      "src": "research-assets/figures/tcar-acap/fig1.png"
+    },
+    {
+      "type": "image",
+      "key": "f2",
+      "num": "Figure 2",
+      "title": "Adjusted outcomes forest plot",
+      "caption": "Adjusted Outcomes presented in Forest Plot of Outcomes by Groups. Red Squares represent significance p<0.05. Adjusted odds ratios (95% CI) versus Group I (DAPT, reference). 30-day mortality: Group II (SAPT+AC) AOR 1.60 (1.10-2.35, p=0.015), Group III (TT) 0.94 (0.62-1.44, p=0.790), Group IV (AC) 0.88 (0.40-1.93, p=0.751). Any neurologic event: Group II 1.52 (1.21-1.92, p=0.001), Group III 0.92 (0.71-1.19, p=0.523), Group IV 2.15 (1.54-3.01, p<0.001). Composite mortality or stroke: Group II 1.58 (1.29-1.93, p<0.001), Group III 0.96 (0.77-1.20, p=0.731), Group IV 2.58 (1.39-4.79, p<0.001).",
+      "src": "research-assets/figures/tcar-acap/fig2.png"
+    },
+    {
+      "type": "image",
+      "key": "f3",
+      "num": "Figure 3",
+      "title": "Clinical algorithm for antithrombotic management",
+      "caption": "Clinical algorithm for antithrombotic management in patients undergoing TCAR. For patients without an indication for long-term anticoagulation, DAPT (ASA + P2Y12 inhibitor) remains optimal. If anticoagulation is indicated and bleeding concern is not prohibitive, triple therapy (DAPT + AC) is preferred. If triple therapy is contraindicated or bleeding is a significant concern, P2Y12 inhibitor + AC is the safer single-antiplatelet alternative. Per-branch 30-day rates are annotated for mortality, neurologic events, composite death/stroke, and major bleeding.",
+      "src": "research-assets/figures/tcar-acap/fig3.png"
+    }
+  ],
+  "tables": [
+    {
+      "key": "t1",
+      "label": "Table 1",
+      "caption": "Patient characteristics — selected baseline demographics, comorbidities, and procedural variables by antithrombotic group (n=75,444).",
+      "columns": [
+        "Variable",
+        "Total",
+        "Group I DAPT (n=62,847)",
+        "Group II SAPT+AC (n=5,102)",
+        "Group III TT (n=6,104)",
+        "Group IV AC (n=1,391)",
+        "p-value"
+      ],
+      "rows": [
+        [
+          "Age (mean years, SD)",
+          "73.3 (8.8)",
+          "72.9 (8.9)",
+          "75.5 (8.6)",
+          "75.1 (8.3)",
+          "76.2 (8.8)",
+          "<0.001"
+        ],
+        [
+          "Male sex",
+          "47,794 (63.4%)",
+          "39,173 (62.3%)",
+          "3,448 (67.6%)",
+          "4,241 (69.5%)",
+          "932 (67.0%)",
+          "<0.001"
+        ],
+        [
+          "White race",
+          "68,267 (90.6%)",
+          "56,655 (90.2%)",
+          "4,696 (92.1%)",
+          "5,659 (92.7%)",
+          "1,257 (90.4%)",
+          "<0.001"
+        ],
+        [
+          "BMI 25-29.9",
+          "29,098 (38.6%)",
+          "24,327 (38.7%)",
+          "1,887 (37.0%)",
+          "2,375 (38.9%)",
+          "509 (36.6%)",
+          "<0.001"
+        ],
+        [
+          "CAD",
+          "38,601 (51.2%)",
+          "30,744 (48.9%)",
+          "3,242 (63.5%)",
+          "3,829 (62.7%)",
+          "823 (59.1%)",
+          "<0.001"
+        ],
+        [
+          "Prior CABG or PCI",
+          "28,757 (38.1%)",
+          "22,768 (36.2%)",
+          "2,502 (49.0%)",
+          "2,883 (47.2%)",
+          "604 (43.4%)",
+          "<0.001"
+        ],
+        [
+          "PPVI (prior peripheral vascular intervention)",
+          "8,347 (11.1%)",
+          "6,471 (10.3%)",
+          "763 (15.0%)",
+          "947 (15.5%)",
+          "166 (11.9%)",
+          "<0.001"
+        ],
+        [
+          "Prior major amputation",
+          "1,879 (2.5%)",
+          "1,406 (2.2%)",
+          "187 (3.7%)",
+          "240 (3.9%)",
+          "46 (3.3%)",
+          "<0.001"
+        ],
+        [
+          "TIA or stroke history",
+          "36,799 (48.8%)",
+          "30,147 (48.0%)",
+          "2,705 (53.1%)",
+          "3,169 (52.0%)",
+          "778 (56.0%)",
+          "<0.001"
+        ],
+        [
+          "Dysrhythmia",
+          "17,403 (23.1%)",
+          "8,658 (13.8%)",
+          "3,656 (71.8%)",
+          "4,071 (66.8%)",
+          "1,018 (73.2%)",
+          "<0.001"
+        ],
+        [
+          "COPD",
+          "18,750 (24.9%)",
+          "15,144 (24.1%)",
+          "1,409 (27.6%)",
+          "1,806 (29.6%)",
+          "391 (28.1%)",
+          "<0.001"
+        ],
+        [
+          "Diabetes",
+          "29,134 (38.6%)",
+          "23,773 (37.8%)",
+          "2,187 (42.9%)",
+          "2,612 (42.8%)",
+          "562 (40.4%)",
+          "<0.001"
+        ],
+        [
+          "Dialysis",
+          "996 (1.3%)",
+          "729 (1.2%)",
+          "125 (2.5%)",
+          "110 (1.8%)",
+          "32 (2.3%)",
+          "<0.001"
+        ],
+        [
+          "Hypertension",
+          "68,663 (91.1%)",
+          "56,849 (90.5%)",
+          "4,781 (93.7%)",
+          "5,725 (93.8%)",
+          "1,308 (94.1%)",
+          "<0.001"
+        ],
+        [
+          "Protamine use",
+          "66,734 (89.8%)",
+          "55,668 (89.9%)",
+          "4,414 (87.9%)",
+          "5,498 (91.9%)",
+          "1,154 (84.1%)",
+          "<0.001"
+        ],
+        [
+          "Elective urgency",
+          "67,269 (89.2%)",
+          "56,184 (89.4%)",
+          "4,499 (88.2%)",
+          "5,471 (89.6%)",
+          "1,115 (80.2%)",
+          "<0.001"
+        ],
+        [
+          "Preop creatinine (mg/dL, mean SD)",
+          "1.09 (0.74)",
+          "1.08 (0.78)",
+          "1.14 (0.45)",
+          "1.14 (0.45)",
+          "1.16 (0.68)",
+          "<0.001"
+        ]
+      ],
+      "note": "Selected significant rows from the full Table 1. AC = anticoagulation; ASA = aspirin; BMI = body mass index; CABG = coronary artery bypass graft; CAD = coronary artery disease; COPD = chronic obstructive pulmonary disease; DAPT = dual antiplatelet therapy; PCI = percutaneous coronary intervention; PPVI = prior peripheral vascular intervention; SAPT+AC = single antiplatelet + anticoagulation; TIA = transient ischemic attack; TT = triple therapy."
+    },
+    {
+      "key": "t2",
+      "label": "Table 2",
+      "caption": "Primary and secondary outcomes — unadjusted 30-day rates by antithrombotic group (n=75,444).",
+      "columns": [
+        "Outcome",
+        "Total",
+        "Group I DAPT",
+        "Group II SAPT+AC",
+        "Group III TT",
+        "Group IV AC",
+        "p-value"
+      ],
+      "rows": [
+        [
+          "30-day mortality",
+          "299 (0.4%)",
+          "215 (0.34%)",
+          "46 (0.90%)",
+          "31 (0.51%)",
+          "7 (0.50%)",
+          "<0.001"
+        ],
+        [
+          "Any neurologic event",
+          "1,051 (1.39%)",
+          "812 (1.29%)",
+          "112 (2.20%)",
+          "80 (1.31%)",
+          "47 (3.38%)",
+          "<0.001"
+        ],
+        [
+          "Death or stroke (composite)",
+          "1,319 (1.75%)",
+          "1,002 (1.59%)",
+          "153 (3.00%)",
+          "110 (1.80%)",
+          "54 (3.88%)",
+          "<0.001"
+        ],
+        [
+          "Myocardial infarction — NSTEMI",
+          "144 (0.19%)",
+          "117 (0.19%)",
+          "6 (0.12%)",
+          "12 (0.24%)",
+          "4 (0.29%)",
+          "0.431"
+        ],
+        [
+          "Myocardial infarction — STEMI",
+          "141 (0.19%)",
+          "118 (0.19%)",
+          "12 (0.24%)",
+          "9 (0.15%)",
+          "2 (0.14%)",
+          "0.431"
+        ],
+        [
+          "Dysrhythmia",
+          "1,070 (1.42%)",
+          "859 (1.37%)",
+          "85 (1.67%)",
+          "101 (1.65%)",
+          "25 (1.80%)",
+          "0.063"
+        ],
+        [
+          "CHF",
+          "176 (0.23%)",
+          "119 (0.19%)",
+          "22 (0.43%)",
+          "25 (0.41%)",
+          "10 (0.72%)",
+          "<0.001"
+        ],
+        [
+          "MACE",
+          "2,306 (3.06%)",
+          "1,809 (2.88%)",
+          "211 (4.14%)",
+          "209 (3.42%)",
+          "77 (5.54%)",
+          "<0.001"
+        ],
+        [
+          "Restenosis ≥70%",
+          "46 (0.06%)",
+          "34 (0.05%)",
+          "1 (0.02%)",
+          "3 (0.05%)",
+          "8 (0.58%)",
+          "<0.001"
+        ],
+        [
+          "Bleeding — access site",
+          "826 (1.10%)",
+          "654 (1.04%)",
+          "59 (1.16%)",
+          "90 (1.48%)",
+          "23 (1.65%)",
+          "<0.001"
+        ],
+        [
+          "Bleeding — retroperitoneal",
+          "44 (0.06%)",
+          "33 (0.05%)",
+          "3 (0.06%)",
+          "8 (0.13%)",
+          "0 (0.00%)",
+          "<0.001"
+        ],
+        [
+          "Bleeding — intracranial",
+          "438 (0.58%)",
+          "336 (0.54%)",
+          "33 (0.65%)",
+          "55 (0.90%)",
+          "14 (1.01%)",
+          "<0.001"
+        ]
+      ],
+      "note": "Perioperative bleeding overall p<0.001 across the access-site, retroperitoneal, and intracranial subtypes. CHF = congestive heart failure; MACE = major adverse cardiac events; NSTEMI/STEMI = non-ST/ST-elevation myocardial infarction."
+    },
+    {
+      "key": "t3",
+      "label": "Table 3",
+      "caption": "Adjusted outcomes — multivariate logistic regression; adjusted odds ratios (95% CI) versus DAPT (Group I, reference).",
+      "columns": [
+        "Outcome / Group",
+        "AOR (95% CI)",
+        "p-value"
+      ],
+      "rows": [
+        [
+          "30-day mortality — Group I DAPT",
+          "Reference",
+          "—"
+        ],
+        [
+          "30-day mortality — Group II SAPT+AC",
+          "1.60 (1.10, 2.35)",
+          "0.015"
+        ],
+        [
+          "30-day mortality — Group III TT",
+          "0.94 (0.62, 1.44)",
+          "0.790"
+        ],
+        [
+          "30-day mortality — Group IV AC",
+          "0.88 (0.40, 1.93)",
+          "0.751"
+        ],
+        [
+          "Any neurologic event — Group I DAPT",
+          "Reference",
+          "—"
+        ],
+        [
+          "Any neurologic event — Group II SAPT+AC",
+          "1.52 (1.21, 1.92)",
+          "<0.001"
+        ],
+        [
+          "Any neurologic event — Group III TT",
+          "0.92 (0.71, 1.19)",
+          "0.523"
+        ],
+        [
+          "Any neurologic event — Group IV AC",
+          "2.15 (1.54, 3.01)",
+          "<0.001"
+        ],
+        [
+          "Composite mortality or stroke — Group I DAPT",
+          "Reference",
+          "—"
+        ],
+        [
+          "Composite mortality or stroke — Group II SAPT+AC",
+          "1.58 (1.29, 1.93)",
+          "<0.001"
+        ],
+        [
+          "Composite mortality or stroke — Group III TT",
+          "0.96 (0.77, 1.20)",
+          "0.731"
+        ],
+        [
+          "Composite mortality or stroke — Group IV AC",
+          "2.58 (1.39, 4.79)",
+          "<0.001"
+        ]
+      ],
+      "note": "Adjusted for age, gender, race, BMI, insurance, functional status, living status, prior CAD, CABG, PCI, PPVI, major amputation, TIA, stroke, high risk, dysrhythmia, COPD, diabetes, dialysis, HTN, smoking, and symptomatic/asymptomatic indication."
+    },
+    {
+      "key": "t4",
+      "label": "Table 4",
+      "caption": "Sub-analysis of Group II (SAPT+AC): aspirin+AC (n=1,874) vs P2Y12 inhibitors+AC (n=3,228).",
+      "columns": [
+        "Outcome",
+        "Total (n=5,102)",
+        "ASA + AC (n=1,874)",
+        "P2Y12 + AC (n=3,228)",
+        "p-value"
+      ],
+      "rows": [
+        [
+          "30-day mortality",
+          "46 (0.90%)",
+          "20 (1.07%)",
+          "26 (0.81%)",
+          "0.340"
+        ],
+        [
+          "Any neurologic event",
+          "112 (2.20%)",
+          "47 (2.51%)",
+          "65 (2.01%)",
+          "0.244"
+        ],
+        [
+          "Death or stroke (composite)",
+          "153 (3.00%)",
+          "65 (3.47%)",
+          "88 (2.73%)",
+          "0.134"
+        ],
+        [
+          "Myocardial infarction — NSTEMI",
+          "6 (0.12%)",
+          "2 (0.11%)",
+          "4 (0.12%)",
+          "0.690"
+        ],
+        [
+          "Myocardial infarction — STEMI",
+          "12 (0.24%)",
+          "3 (0.16%)",
+          "9 (0.28%)",
+          "0.690"
+        ],
+        [
+          "Dysrhythmia",
+          "85 (1.67%)",
+          "35 (1.87%)",
+          "50 (1.55%)",
+          "0.391"
+        ],
+        [
+          "CHF",
+          "22 (0.43%)",
+          "5 (0.27%)",
+          "17 (0.53%)",
+          "0.172"
+        ],
+        [
+          "MACE",
+          "211 (4.14%)",
+          "83 (4.43%)",
+          "128 (3.97%)",
+          "0.423"
+        ],
+        [
+          "Bleeding — access site",
+          "59 (1.16%)",
+          "29 (1.55%)",
+          "30 (0.93%)",
+          "—"
+        ],
+        [
+          "Bleeding — retroperitoneal",
+          "3 (0.06%)",
+          "2 (0.11%)",
+          "1 (0.03%)",
+          "—"
+        ],
+        [
+          "Bleeding — intracranial",
+          "33 (0.65%)",
+          "21 (1.12%)",
+          "12 (0.37%)",
+          "0.001"
+        ]
+      ],
+      "note": "No significant differences in mortality, neurologic events, composite death/stroke, MI, dysrhythmia, CHF, restenosis, or MACE. Significant bleeding differences favored P2Y12+AC; intracranial bleeding p=0.001 (reported as p=0.005 in the abstract). Composite perioperative bleeding for the subgroup overall p<0.05."
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "paras": [
+        "Antithrombotic agents describe combinations of antiplatelet and anticoagulant medications, and millions of Americans with cardiovascular conditions use them to prevent thrombotic complications[1]. Despite their proven safety and efficacy, there are no guidelines addressing the high procedural bleeding risk of different antithrombotic combinations for patients undergoing carotid revascularization.",
+        "Current Society for Vascular Surgery (SVS) Clinical Practice Guidelines[2] recommend surgical treatment for asymptomatic carotid stenosis >70% and symptomatic stenosis >50%, and dual antiplatelet therapy (DAPT) is the standard of care after Transcarotid Artery Revascularization (TCAR). However, no guidelines address management of antithrombotic agents in TCAR patients who also have an indication for anticoagulation — such as arrhythmia, mechanical heart valves, deep venous thrombosis, or ventricular thrombus. The American Heart Association's 2024 statistical update[3] reported over 10.5 million Americans with atrial fibrillation, the most common arrhythmia, and as TCAR volume continues to rise in the US[4], surgeons increasingly encounter elderly patients on chronic anticoagulation who need an optimal regimen before and after TCAR.",
+        "Coronary literature provides level 1A evidence on optimal antithrombotic management after percutaneous coronary intervention (PCI) or coronary artery bypass (CABG) in patients on long-term oral anticoagulation for atrial fibrillation, with varied findings. Antithrombotic regimens for CABG patients with complex comorbidities remain debated[5]. Matos et al. showed that among >166,747 patients with new-onset post-operative atrial fibrillation after CABG, anticoagulation conferred a four-fold higher risk of bleeding readmission with no difference in 30-day stroke readmissions[6], and long-term SWEDEHEART registry data found anticoagulation plus antiplatelet therapy had higher bleeding risk than anticoagulation alone without improving survival or ischemic events[7].",
+        "PCI studies provide a closer analogue to TCAR. The WOEST trial[8] showed significantly higher hemorrhagic complications with triple therapy (anticoagulation plus DAPT), and the PIONEER AF-PCI[9] and RE-DUAL PCI[10] trials replicated this finding. Based on these trials and further studies[11], most cardiology experts[12] now recommend anticoagulation plus single antiplatelet therapy with P2Y12 inhibitors for patients undergoing PCI who have chronic atrial fibrillation.",
+        "While no randomized trials address this question for carotid stenting, retrospective studies show high bleeding risk with triple therapy. A single-center study by Pardo-Galiana et al.[13] found that chronic atrial-fibrillation patients undergoing carotid stenting on triple therapy were at extremely high bleeding risk, and a VQI study by Dakour-Aridi et al.[14] showed DAPT remains the most efficacious and safest regimen after TCAR, with alternative regimens associated with increased mortality and stroke. A notable limitation of that study was the absence of a triple-therapy analysis — a void this study sought to address.",
+        "The aim of this study was to expand the existing literature by comparing four distinct regimens — DAPT, SAPT+AC, DAPT plus anticoagulation (triple therapy), and AC only — in all comers undergoing TCAR. The substantially larger sample size affords higher power and a more robust subgroup analysis of the SAPT+AC group, plus a more detailed bleeding analysis of alternative regimens not previously discussed."
+      ]
+    },
+    {
+      "id": "methods",
+      "title": "Methods",
+      "subsections": [
+        {
+          "h": "Data Source",
+          "paras": [
+            "A retrospective analysis was performed on all patients who underwent TCAR using the SVS Vascular Quality Initiative (VQI) TCAR Surveillance Project (TSP) database from 2016 to 2024. The TSP is an addendum to the VQI Carotid Artery Stent (CAS) registry that standardizes participation requirements and outcomes tracking since the addition of TCAR in 2016. This study was submitted for institutional review board approval (study #28166) and given exempt status given its retrospective registry design."
+          ]
+        },
+        {
+          "h": "Cohort Selection",
+          "paras": [
+            "Patients undergoing TCAR were selected from the VQI CAS registry (2016-2024) using the flow-reversal variable (n=75,444). Patients were categorized by anticoagulation and antiplatelet usage within 30 days of TCAR and on the same regimen at discharge, dividing the cohort into four groups: (1) Dual Antiplatelet Therapy (DAPT, n=62,847); (2) Single Antiplatelet Therapy and Anticoagulation (SAPT+AC, n=5,102), further divided into aspirin+AC (ASA+AC, n=1,874) and P2Y12 inhibitors+AC (P2Y12+AC, n=3,228); (3) Triple Therapy with two antiplatelet agents and anticoagulation (TT, n=6,104); and (4) Anticoagulation alone (AC, n=1,391).",
+            "The authors acknowledge that anticoagulation alone is not standard of care for TCAR; this group was included as a separate investigational group given a large enough sample of reported patients in the VQI database."
+          ]
+        },
+        {
+          "h": "Outcomes",
+          "paras": [
+            "Primary outcomes were 30-day mortality, occurrence of any neurologic event, and composite death or stroke. Secondary outcomes were myocardial infarction (MI), perioperative bleeding (access site, retroperitoneal, intracranial), dysrhythmia, congestive heart failure (CHF), restenosis severity, and major adverse cardiac events (MACE). All variables were defined per VQI CAS TSP standards. MI subcategories included NSTEMI or STEMI, and restenosis severity was divided into <50%, 50-69%, or >70%."
+          ]
+        },
+        {
+          "h": "Statistical Analysis",
+          "paras": [
+            "Descriptive univariate statistics compared patient demographics, comorbidities, prior stroke history and symptomatology, prior carotid endarterectomy or stenting, and procedural factors (anesthetic type, intraoperative anticoagulation, protamine, fluoroscopy time). Unadjusted categorical outcomes were reported as counts and percentages using Pearson chi-squared or Fisher exact tests as appropriate. Multivariate logistic regression controlled for clinically relevant confounders that were statistically significant on univariate analysis. Analysis was performed in Stata/IC 18.5 (StataCorp LLC, College Station, TX); p<0.05 was considered significant."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results",
+      "subsections": [
+        {
+          "h": "Patient Characteristics",
+          "paras": [
+            "Table 1 summarizes baseline characteristics of the 75,444 TCAR patients. The cohort was predominantly male (63.4%) and White (90.6%), with a mean age of 73.3 ± 8.8 years and mean BMI of 28.3 ± 14.0 kg/m². Statistically significant differences between groups (all p<0.05) were found for male sex, white race, BMI 25-29.9, insurance type, CAD, prior CABG or PCI, prior peripheral vascular intervention, prior major leg amputation, prior TIA, dysrhythmia, COPD, diabetes, dialysis, hypertension, smoking, anesthesia, intraoperative anticoagulation, protamine use, GPIIb/IIIa inhibitor use, bradyarrhythmia, age, BMI, and preoperative creatinine."
+          ]
+        },
+        {
+          "h": "Primary Outcomes",
+          "paras": [
+            "Overall 30-day mortality after TCAR was 0.4%. Univariate 30-day mortality was Group I (DAPT) 0.34%, Group II (SAPT+AC) 0.90%, Group III (TT) 0.51%, and Group IV (AC) 0.50% (p<0.05; Table 2). Multivariate analysis confirmed Group I had the lowest mortality and Group II the highest, with AOR 1.60 (CI 1.10-2.35, p=0.015) (Table 3).",
+            "The overall incidence of any neurologic event was 1.39%. Univariate rates were Group I 1.29%, Group II 2.20%, Group III 1.31%, and Group IV 3.38% (p<0.05; Table 2). Multivariate analysis showed Group I had the lowest and Group IV the highest incidence of any neurologic event (AOR 2.15, CI 1.54-3.01, p<0.001) (Table 3).",
+            "The overall incidence of composite death or stroke was 1.75%. Univariate rates were Group I 1.59%, Group II 3.00%, Group III 1.80%, and Group IV 3.88% (p<0.05; Table 2). Multivariate analysis showed Group I had the lowest and Group IV the highest incidence (AOR 2.58, CI 1.39-4.79, p<0.001) (Table 3). The primary and adjusted outcomes are illustrated in Figures 1 and 2."
+          ]
+        },
+        {
+          "h": "Secondary Outcomes",
+          "paras": [
+            "Secondary outcomes are detailed in Table 2. Statistically significant variables included congestive heart failure (Group I 0.19%, II 0.43%, III 0.41%, IV 0.72%), restenosis >70% (Group I 0.05%, II 0.02%, III 0.05%, IV 0.58%), access-site bleeding (Group I 1.04%, II 1.16%, III 1.48%, IV 1.65%), and MACE (Group I 2.88%, II 4.14%, III 3.42%, IV 5.54%) (all p<0.05)."
+          ]
+        },
+        {
+          "h": "Sub-analysis of Group II (SAPT+AC)",
+          "paras": [
+            "Patients in Group II were subdivided into ASA+AC and P2Y12 inhibitors+AC. The sub-analysis showed no statistical difference in 30-day mortality, any neurologic event, composite death or stroke, MI, dysrhythmias, CHF, restenosis, or MACE (Table 4). Significant differences for major bleeding favored P2Y12+AC: access-site bleeding (ASA+AC 1.55% vs P2Y12+AC 0.93%), retroperitoneal bleeding (0.11% vs 0.03%), and intracranial bleeding (1.12% vs 0.37%) (p<0.05)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discussion",
+      "title": "Discussion",
+      "paras": [
+        "This retrospective analysis of 75,444 TCAR patients in the VQI database focused on the association between different perioperative medication regimens and outcomes, providing comprehensive and novel insight into the safety and efficacy of perioperative antiplatelet and antithrombotic regimens. First, it reaffirms the low perioperative risk of TCAR: overall 30-day mortality was 0.4%, any neurologic event 1.39%, and combined death or stroke 1.75%. Second, 30-day mortality was highest in Group II (SAPT+AC) at 0.90% (AOR 1.60) and lowest in Group I (DAPT) at 0.34%. Third, any neurologic event was highest in Group IV (AC only) at 3.38% and lowest in Group I at 1.29%. Fourth, Group I had the lowest and Group IV the highest incidence of composite death or stroke. Fifth, the SAPT+AC sub-analysis showed ASA+AC patients were more likely to suffer bleeding complications (access-site, retroperitoneal, and intracranial) than P2Y12+AC patients.",
+        "Current SVS guidelines[2] recommend DAPT in the perioperative period after carotid artery stenting, but the evidence largely stems from coronary literature and limited transfemoral carotid stenting data, and they do not address management of antithrombotic agents in patients already on anticoagulation for other comorbidities. Coronary literature offers abundant evidence: the WOEST trial[8] showed bleeding among triple-therapy patients (anticoagulation + DAPT) was significantly higher than anticoagulation plus a single antiplatelet agent (44% vs 19%, p<0.05); PIONEER AF-PCI[9] showed higher bleeding with anticoagulation + DAPT than anticoagulation + single antiplatelet (27% vs 17%, p<0.05); and RE-DUAL PCI[10] showed the same (27% vs 15%, p<0.05).",
+        "Based on these trials, many cardiology experts now recommend that patients on chronic anticoagulation undergoing coronary intervention continue long-term anticoagulation, discontinue aspirin within a week and clopidogrel within 3 months — continuing clopidogrel up to 12 months in high-thrombosis-risk patients[12]. The current VQI review shows patients on anticoagulation alone and on triple therapy are at increased risk for bleeding (Table 2), highlighting the need for heightened awareness among vascular surgeons of severe bleeding risk in patients needing continued anticoagulation after TCAR.",
+        "A propensity-score-matched VQI analysis by Dakour-Aridi et al.[14] compared DAPT against broadly defined alternative antithrombotic regimens and found significantly higher mortality and stroke with alternatives; the current analysis shows similar findings, with DAPT having the lowest mortality, stroke, and composite outcome (Table 3). To answer the question of the optimal regimen after carotid stenting in patients on therapeutic anticoagulation for atrial fibrillation, Pardo-Galiana et al.[13] concluded that triple therapy confers the highest bleeding risk and that anticoagulation + P2Y12 inhibitor offers the best safety profile — consistent with this analysis, in which sub-analysis revealed P2Y12+AC may confer lower rates of access-site, retroperitoneal, and intracranial bleeding.",
+        "Based on these insights, the data are summarized in the Figure 3 clinical algorithm for perioperative antiplatelet and anticoagulation decision-making in TCAR: for patients without an indication for long-term anticoagulation, DAPT remains optimal; if long-term anticoagulation is required and bleeding concerns are not prohibitive, triple therapy is the preferred modality; and should triple therapy be contraindicated or bleeding risk be a primary concern, P2Y12 inhibitor-based single antiplatelet therapy with anticoagulation represents a potentially safer alternative to aspirin-based regimens.",
+        "Several limitations warrant consideration. The retrospective design limits causal inference, and the marked disparity in group sizes — particularly the small AC-alone group (n=1,391) — may contribute to less stable findings, as in the unexpected bleeding patterns. Anticoagulation was treated as a composite and not filtered for vitamin K antagonists versus direct oral anticoagulants. Anticoagulation alone is not standard of care for TCAR and should not be performed for patients who cannot receive antiplatelet therapy. Despite multivariate regression, confounding by indication may persist: DAPT patients may be a healthier cohort, while the need for chronic anticoagulation in Groups II-IV suggests higher cardiovascular burden (e.g., atrial fibrillation, an independent risk factor). A sub-analysis of the preoperative dysrhythmia variable found no significant differences between groups, but the exact indication for anticoagulation could not be tracked. VQI captures regimens within 30 days of the procedure and at 30 days post-discharge but cannot track interim changes, and patients holding anticoagulation longer while transitioning to DAPT could be misclassified into the DAPT group (theorized to be a small number).",
+        "Despite these limitations, key strengths include the large sample size from the standardized SVS TSP registry, providing robust statistical power for detecting differences across the four groups and enabling detailed SAPT+AC subgroup analysis. The findings confirm the superiority of DAPT while challenging the notion that all alternatives are uniformly inferior[15]: whereas Dakour-Aridi et al. reported increased in-hospital stroke (1.7% vs 1.1%, OR 1.54) and 1-year mortality (HR 1.34) with alternative regimens[14], this subgroup analysis shows triple therapy achieves outcomes remarkably similar to DAPT — 30-day mortality (0.51% vs 0.34%), neurologic events (1.31% vs 1.29%), and composite death or stroke (1.80% vs 1.59%)."
+      ]
+    },
+    {
+      "id": "conclusions",
+      "title": "Conclusions",
+      "paras": [
+        "This large-scale analysis of 75,444 TCAR patients demonstrates that dual antiplatelet therapy remains the gold standard for most patients, achieving superior outcomes with the lowest rates of 30-day mortality (0.34%), neurologic events (1.29%), and composite death/stroke (1.59%). For patients requiring anticoagulation without significant bleeding concerns, triple therapy emerges as a viable strategy with marginally increased bleeding risk and outcomes comparable to DAPT. When triple therapy is contraindicated, P2Y12 inhibitor-based single antiplatelet therapy with anticoagulation offers fewer bleeding complications than aspirin-based regimens, particularly for intracranial bleeding (0.37% vs 1.12%)."
+      ]
+    }
+  ],
+  "references": [
+    "Benjamin EJ, Muntner P, Alonso A, Bittencourt MS, Callaway CW, Carson AP, Chamberlain AM, Chang AR, Cheng S, Das SR, et al. Heart Disease and Stroke Statistics-2019 Update: A Report From the American Heart Association. Circulation. 2019;139:e56-e528. doi:10.1161/CIR.0000000000000659",
+    "AbuRahma AF, Avgerinos ED, Chang RW, Darling RC 3rd, Duncan AA, Forbes TL, Malas MB, Murad MH, Perler BA, Powell RJ, et al. Society for Vascular Surgery clinical practice guidelines for management of extracranial cerebrovascular disease. J Vasc Surg. 2022;75:4S-22S. doi:10.1016/j.jvs.2021.04.073",
+    "Ko D, Chung MK, Evans PT, Benjamin EJ, Helm RH. Atrial Fibrillation: A Review. JAMA. 2025;333:329-342. doi:10.1001/jama.2024.22451",
+    "Crisostomo P, Pinto Rodriguez P, Khan N, Liu A, Flanagan S, Yuan K, Carmon L, Blecha M. The rising utilization and associated outcomes of transcarotid arterial revascularization. Int Angiol. 2025;44:212-223. doi:10.23736/S0392-9590.25.05421-5",
+    "Sopek-Merkaš I, Lakušić N, Fučkar K, Cerovec D, Bešić KM. Antiplatelet therapy after coronary artery bypass graft surgery - unevenness of daily clinical practice. Acta Clin Croat. 2022;60:540-543. doi:10.20471/acc.2021.60.03.26",
+    "Matos JD, McIlvaine S, Grau-Sepulveda M, Jawitz OK, Brennan JM, Khabbaz KR, Sellke FW, Yeh R, Zimetbaum P. Anticoagulation and amiodarone for new atrial fibrillation after coronary artery bypass grafting: Prescription patterns and 30-day outcomes in the United States and Canada. J Thorac Cardiovasc Surg. 2021;162:616-624.e613. doi:10.1016/j.jtcvs.2020.01.077",
+    "Skibniewski M, Venetsanos D, Ahlsson A, Batra G, Friberg Ö, Hofmann R, Janzon M, Karlsson LO, Lawesson SS, Nielsen SJ, et al. Long-term antithrombotic therapy after coronary artery bypass grafting in patients with preoperative atrial fibrillation. A nationwide observational study from the SWEDEHEART registry. Am Heart J. 2023;257:69-77. doi:10.1016/j.ahj.2022.12.001",
+    "Dewilde WJ, Oirbans T, Verheugt FW, Kelder JC, De Smet BJ, Herrman JP, Adriaenssens T, Vrolix M, Heestermans AA, Vis MM, et al. Use of clopidogrel with or without aspirin in patients taking oral anticoagulant therapy and undergoing percutaneous coronary intervention: an open-label, randomised, controlled trial. Lancet. 2013;381:1107-1115. doi:10.1016/s0140-6736(12)62177-1",
+    "Lopes RD, Heizer G, Aronson R, Vora AN, Massaro T, Mehran R, Goodman SG, Windecker S, Darius H, Li J, et al. Antithrombotic Therapy after Acute Coronary Syndrome or PCI in Atrial Fibrillation. N Engl J Med. 2019;380:1509-1524. doi:10.1056/NEJMoa1817083",
+    "Cannon CP, Bhatt DL, Oldgren J, Lip GYH, Ellis SG, Kimura T, Maeng M, Merkely B, Zeymer U, Gropper S, et al. Dual Antithrombotic Therapy with Dabigatran after PCI in Atrial Fibrillation. N Engl J Med. 2017;377:1513-1524. doi:10.1056/NEJMoa1708454",
+    "Lamberts M, Gislason GH, Olesen JB, Kristensen SL, Schjerning Olsen AM, Mikkelsen A, Christensen CB, Lip GY, Køber L, Torp-Pedersen C, et al. Oral anticoagulation and antiplatelets in atrial fibrillation patients after myocardial infarction and coronary intervention. J Am Coll Cardiol. 2013;62:981-989. doi:10.1016/j.jacc.2013.05.029",
+    "Barnes GD. Combining antiplatelet and anticoagulant therapy in cardiovascular disease. Hematology Am Soc Hematol Educ Program. 2020;2020:642-648. doi:10.1182/hematology.2020000151",
+    "Pardo-Galiana B, Medina-Rodriguez M, Millan-Vazquez M, Cabezas-Rodriguez JA, Lebrato-Hernandez L, Ainz-Gomez L, Zapata-Arriaza E, Ortega J, de Albóniga-Chindurza A, Montaner J, et al. Antithrombotic Treatment after Carotid Stenting in Patients with Concomitant Atrial Fibrillation. AJNR Am J Neuroradiol. 2022;43:727-730. doi:10.3174/ajnr.A7482",
+    "Dakour-Aridi H, Motaganahalli RL, Fajardo A, Tanaka A, Saqib NU, Martin GH, Harlin SA, Keyhani A, Keyhani K, Wang SK. Propensity-score-matched analysis of dual antiplatelet treatment and alternative antiplatelet regimens after transcarotid revascularizations. J Vasc Surg. 2023;78:142-149. doi:10.1016/j.jvs.2023.02.008",
+    "Olvera A, Tanaka A, Madison MK, Motaganahalli RL, Fajardo A, Keyhani A, Keyhani K, Wang SK. Safety of Transcarotid Revascularization in Patients with a Contraindication to Dual Antiplatelets. Vasc Endovascular Surg. 2022;56:746-753. doi:10.1177/15385744221113296"
+  ]
+}
