@@ -1,0 +1,34 @@
+{
+  "surface": "hakims",
+  "generated_from": "alfred-cloud",
+  "projects": [
+    {
+      "id": "billing-coding",
+      "title": "AI in Vascular Surgery Coding",
+      "authors": "Hakimi A, Soucy J, Rawat S, Zil-E-Ali A, Perry L, Aziz F",
+      "section": "active",
+      "stage": "Manuscript draft — minor edits pending. EVS poster accepted (Annual Meeting, Sept 17–19 2026, Washington DC)."
+    },
+    {
+      "id": "tcar-segmentation",
+      "title": "SAM3 Angio Segmentation",
+      "authors": "Hakimi A, et al.",
+      "section": "active",
+      "stage": "In progress · preliminary results — external validation on the Dr.SAM benchmark (n=500); carotid/TCAR evaluation ongoing."
+    },
+    {
+      "id": "readability-scores",
+      "title": "Quantitative Assessment of the Readability of Patient Education Material by the Society of Vascular Surgery",
+      "authors": "Hakimi A, Othman L, Soucy JW, Chatzis KD, Zil-E-Ali A, Ali T, Aziz F",
+      "section": "published",
+      "stage": "Published · Ann Vasc Surg 2026;130:229-237"
+    },
+    {
+      "id": "tcar-acap",
+      "title": "Optimizing TCAR Antithrombotic Regimens for Patients on Chronic Anticoagulation",
+      "authors": "Hakimi A, Ali T, Rawat S, Dogbe L, Schweitzer C, Zil-E-Ali A, Aziz F",
+      "section": "published",
+      "stage": "Published · Ann Vasc Surg 2026;128:181-192"
+    }
+  ]
+}

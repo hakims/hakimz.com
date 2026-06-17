@@ -5,17 +5,9 @@
   "authors": "Hakimi A, et al.",
   "affiliations": "Division of Vascular Surgery, Penn State Milton S. Hershey Medical Center, Hershey, PA",
   "stage": "In progress · preliminary results — external validation on the Dr.SAM benchmark (n=500); carotid/TCAR evaluation ongoing.",
-  "drive": {
-    "manuscript_doc_id": "",
-    "manuscript_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
-    "figures_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
-    "project_folder_id": "1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
-    "results_run_id": "",
-    "manuscript_modified": ""
-  },
   "synced": "2026-06-16",
   "links": {
-    "manuscript": "https://drive.google.com/drive/folders/1PNJUlggxW1TxtISvbuuGyCl8S3xXX9OD",
+    "manuscript": null,
     "published": null,
     "code": null
   },
